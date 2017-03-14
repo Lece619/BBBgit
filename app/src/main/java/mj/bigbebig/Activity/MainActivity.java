@@ -22,6 +22,8 @@ import mj.bigbebig.R;
  *  updated by mk on 2017-02-22
  *  Updated by mk on 2017-02-27 - user 재료들이 배열로 바뀌면서 생성자도 배열로 바뀜. 고로 user_zero를 생성할 때 생성자에 배열이 들어가게 바꿈.
  *  Updated by jk on 2017-03-05 - onCreate 자동 로그인 추가
+ *  Updated by jk on 2017-03-15 - github 연결
+ *
  */
 
 public class MainActivity extends Activity {
