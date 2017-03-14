@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:orientation="horizontal">
+        <FrameLayout
+            android:layout_width="190dp"
+            android:layout_height="260dp">
+            <ImageView
+                android:scaleType="fitXY"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="170dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/bonobono"/>
+            <ImageView
+                android:id="@+id/fightMon_img"
+                android:src="@drawable/woodboard"
+                android:rotation="30"
+                android:layout_margin="5dp"
+                android:layout_gravity="bottom|right"
+                android:layout_width="65dp"
+                android:layout_height="65dp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/exp_text"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="Exp"
+                android:layout_marginTop="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:id="@+id/gold_text"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="Gold"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Button
+            android:id="@+id/set_level"
+            android:text="10"
+            android:layout_marginLeft="20dp"
+            android:clickable="false"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <ProgressBar
+            android:id="@+id/expBar"
+            android:layout_alignParentBottom="true"
+            android:layout_width="290dp"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@+id/set_level"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:max="100"
+            android:progress="100"/>
+        <TextView
+            android:id="@+id/exp_num"
+            android:text="50/100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/expBar"
+            android:layout_alignRight="@+id/expBar"/>
+
+
+    </RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/resultBox"
+            android:src="@drawable/resultbox"
+            android:layout_gravity="center"
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:onClick="onClick"/>
+        <Button
+            android:id = "@+id/bnt_ok"
+            android:text="확  인"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="15dp"
+            android:onClick="onClick"
+            android:visibility="invisible" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/reward_4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/stone"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/reward_2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/stone"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/reward_0"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/stone"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/reward_1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/stone"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/reward_3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/stone"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+    <LinearLayout
+        android:layout_marginBottom="50dp"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Button
+            android:text="다시하기"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:text="끝내기"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="첫번째 던전"
+        android:id="@+id/btn_dg1"/>
+    <item
+        android:title="두번째 던전"
+        android:id="@+id/btn_dg2"/>
+    <item
+        android:title="세번째 던전"
+        android:id="@+id/btn_dg3"/>
+</menu>

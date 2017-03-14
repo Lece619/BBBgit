@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:theme="@android:style/Theme.NoTitleBar">
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/edit_loginID"
+            android:hint="ID" />
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/edit_loginPW" />
+
+    <Button
+        android:text="Login"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_login"/>
+
+    <Button
+        android:text="회원가입"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_resUser"/>
+    <Button
+        android:layout_width="70dp"
+        android:layout_height="45dp"
+        android:text="취소"
+        android:id="@+id/btn_loninPageClose"/>
+</LinearLayout>

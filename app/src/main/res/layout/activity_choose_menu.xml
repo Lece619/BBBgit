@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--update by jino 2017 02 21-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/infobook"
+        android:src="@drawable/infobook"
+        android:layout_gravity="left|top"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:onClick="onClick"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:id="@+id/btn_chooseplanet"
+            android:onClick="onClick"
+            android:background="#000000"
+            android:textColor="#ffffff"
+            android:text="행성 선택"/>
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:id="@+id/btn_character"
+            android:onClick="onClick"
+            android:background="#000000"
+            android:textColor="#ffffff"
+            android:text="캐릭터"/>
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:id="@+id/btn_tools"
+            android:onClick="onClick"
+            android:background="#000000"
+            android:textColor="#ffffff"
+            android:text="도 구"/>
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:id="@+id/btn_skill"
+            android:onClick="onClick"
+            android:background="#000000"
+            android:textColor="#ffffff"
+            android:text="스  킬"/>
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:id="@+id/btn_goMain"
+            android:onClick="onClick"
+            android:background="#000000"
+            android:textColor="#ffffff"
+            android:text="메 인"/>
+    </LinearLayout>
+
+</LinearLayout>

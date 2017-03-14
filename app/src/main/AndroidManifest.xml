@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="mj.bigbebig">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/bbb_icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activity.ChoosePlanet" />
+        <activity android:name=".Activity.FirstPlanet" />
+        <activity android:name=".Activity.SecondPlanet" />
+        <activity android:name=".Activity.ThirdPlanet" />
+        <activity android:name=".Activity.MonsterLoad" />
+        <activity android:name=".Activity.ChooseMenu_Act" />
+        <activity android:name=".Activity.Fight_Act" />
+        <activity android:name=".Activity.ToolList" />
+        <activity android:name=".Activity.MakeStrong" />
+        <activity android:name=".Activity.CombineTool_Act" />
+        <activity android:name=".Activity.SkillList" />
+        <activity android:name=".Activity.CharacterInfo"/>
+        <activity android:name=".Activity.ReadyFight" />
+        <activity android:name=".Activity.FightResult" />
+    </application>
+
+</manifest>
