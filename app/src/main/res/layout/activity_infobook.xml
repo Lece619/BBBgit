@@ -2,10 +2,49 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <ImageView
         android:id="@+id/infoanim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/info"/>
+        android:background="@drawable/info"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|left">
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:id="@+id/btn_character"
+            android:onClick="onClick"
+            android:background="#000000"
+            android:textColor="#ffffff"
+            android:text="캐릭터"
+            android:visibility="invisible"/>
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:id="@+id/btn_tools"
+            android:onClick="onClick"
+            android:background="#000000"
+            android:textColor="#ffffff"
+            android:text="도 구"
+            android:visibility="invisible"/>
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:id="@+id/btn_skill"
+            android:onClick="onClick"
+            android:background="#000000"
+            android:textColor="#ffffff"
+            android:text="스  킬"
+            android:visibility="invisible"/>
+    </LinearLayout>
 </LinearLayout>
