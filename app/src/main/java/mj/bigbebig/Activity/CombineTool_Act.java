@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import mj.bigbebig.Class.usermonster;
 import mj.bigbebig.R;
 
 import static mj.bigbebig.Activity.MainActivity.user_zero;
@@ -34,6 +35,7 @@ public class CombineTool_Act extends Activity {
     ImageView num1_img,num2_img,combine_mark;
     TextView num1_name,num2_name;
     Animation combineAni;
+    usermonster combineResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,10 +110,14 @@ public class CombineTool_Act extends Activity {
         switch (view.getId()){
             case R.id.btn_doCombin:
                 //애니메이션 스타트
-                combine_mark.startAnimation(combineAni);
-                user_zero.monList.remove(k);
-                update();
-
+                if(k!=-1) {
+                    combine_mark.startAnimation(combineAni);
+                    combineResult=monster.combine(user_zero.monList.get(j), user_zero.monList.get(k));
+                    user_zero.monList.set(j, combineResult);
+                    user_zero.monList.remove(k);
+                    update();
+                }else
+                    Toast.makeText(this, "조합할 몬스터를 선택해 주세요", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.btn_protect:
@@ -127,6 +133,7 @@ public class CombineTool_Act extends Activity {
                 break;
 
             case R.id.btn_back:
+                startActivity(new Intent(getApplicationContext(),ToolList.class));
                 finish();
                 break;
         }
@@ -142,6 +149,15 @@ public class CombineTool_Act extends Activity {
             btn[i].setText(null);
             btn[i].setClickable(false);
         }
+        if(j>k) {
+            btn[j].setBackgroundColor(Color.BLACK);
+            j -= 1;
+        }
+        num1_name.setText(user_zero.getMon_name(j));
+        num1_img.setImageResource(monster.getData(user_zero.getMon_name(j), 13));
+        num2_name.setText(" ");
+        num2_img.setImageResource(0);
+        btn[k].setBackgroundColor(Color.BLACK);
     }
 
     /*

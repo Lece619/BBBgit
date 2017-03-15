@@ -48,15 +48,17 @@ public class MonsterLoad extends Activity {
             monster.insert("mt70st30", 40, 50, 70, 40,/**/ 0, 30, 70,/**/ 1, 1, 2, 1, R.drawable.bonobono,1);
 
             //2티어
-            monster.insert("teir2_1st",100,100,100,100,/**/70,30,0,/**/1,1,1,2,R.drawable.bonobono,2);
-            monster.insert("teir2_2st",100,100,100,100,/**/0,30,70,/**/1,1,1,2,R.drawable.bonobono,2);
+            monster.insert("teir2_1st",100,100,100,100,70,30,0,1,1,1,2,R.drawable.bonobono_2,2);
+            monster.insert("teir2_2st",100,100,100,100,0,30,70,1,1,1,2,R.drawable.bonobono_2,2);
 
             //특수
-            monster.insert("americano", 80, 40, 30, 60,/**/ 40, 40, 20,/**/ 1, 1, 1, 1, R.drawable.americano,1);
+            monster.insert("americano", 80, 40, 30, 60, 40, 40, 20, 1, 1, 1, 1, R.drawable.americano,1);
+            onDestroy();
             finish();
         }
         else{
             Toast.makeText(getApplicationContext(), "데이터가 있습니다.", Toast.LENGTH_SHORT).show();
+            onDestroy();
             finish();
         }
     }

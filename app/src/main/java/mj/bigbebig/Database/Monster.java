@@ -17,6 +17,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import mj.bigbebig.Class.usermonster;
 
+import static mj.bigbebig.Activity.MonsterLoad.monster;
+
 public class Monster extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "MONSTER";
@@ -56,7 +58,7 @@ public class Monster extends SQLiteOpenHelper {
         values.put("attackgrow", attackgrow);
         values.put("armorgrow", armorgrow);
         values.put("image", image);
-        values.put("tier",tier);
+        values.put("tier", tier);
         db.insert(DATABASE_NAME, null, values);
         db.close();
     }
@@ -108,12 +110,12 @@ public class Monster extends SQLiteOpenHelper {
     public String[] getallName(){
         SQLiteDatabase db= getReadableDatabase();
         Cursor cs = db.rawQuery("SELECT * FROM "+ DATABASE_NAME,null);
-        String[] result=new String[11];
+        String[] result=new String[10];
         int i=0;
         while(cs.moveToNext()){
             result[i]=cs.getString(1);
             i++;
-            if(i==11) break;
+            if(i==10) break;
         }
         return result;
     }
@@ -144,6 +146,15 @@ public class Monster extends SQLiteOpenHelper {
         return userm;
     }
 
+    //Combine 함수
+    public usermonster combine(usermonster A,usermonster B){
+        String name ="teir2_1st";
+
+        return new usermonster(name, monster.getData(name,"size"),monster.getData(name,"hp"),
+                monster.getData(name,"attack"), monster.getData(name,"armor"),
+                monster.getData(name,"wood"), monster.getData(name,"stone"), monster.getData(name,"metal"),
+                0, monster.getData(name,"image"),monster.getData(name,"tier"));
+    }
 
 
     //이름 사이즈 체력 공 방 나무 암석 금속 사이즈성장 hp성장 공격력성장 아머성장 이미지
