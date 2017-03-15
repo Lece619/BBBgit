@@ -24,7 +24,7 @@ import mj.bigbebig.R;
  *  Updated by jk on 2017-03-05 - onCreate 자동 로그인 추가
  *  Updated by jk on 2017-03-15 - github 연결
  *  Test
- *
+ * seo
  */
 
 public class MainActivity extends Activity {
