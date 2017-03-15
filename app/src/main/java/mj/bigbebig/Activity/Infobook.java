@@ -15,7 +15,7 @@ public class Infobook extends Activity{
     AnimationDrawable ani;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_infobook);
         img = (ImageView)findViewById(R.id.infoanim);
         ani = (AnimationDrawable)img.getDrawable();
         ani.setOneShot(true);
