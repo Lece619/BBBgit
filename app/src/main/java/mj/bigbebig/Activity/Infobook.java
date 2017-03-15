@@ -33,8 +33,8 @@ public class Infobook extends Activity{
                     @Override
                     public void run() {
                         drawable.stop();
-                        Button a = (Button)findViewById(R.id.btn_character);
-                        a.setVisibility(View.VISIBLE);
+                        Button btn_char = (Button)findViewById(R.id.btn_character);
+                        btn_char.setVisibility(View.VISIBLE);
                     }
                 });
             }
