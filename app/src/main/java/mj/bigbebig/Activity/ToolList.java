@@ -108,6 +108,7 @@ public class ToolList extends Activity {
                     Intent it2 = new Intent(getApplicationContext(), CombineTool_Act.class);
                     it2.putExtra("combine1", j);
                     startActivity(it2);
+                    finish();
                 }
                 break;
 

@@ -80,7 +80,7 @@ public class SPsurface extends SurfaceView implements SurfaceHolder.Callback {
         int dirX, dirY;
         dirX = px - ax;
         dirY = py - ay;
-        if(dirX*dirX + dirY*dirY > 500){
+        if(dirX*dirX + dirY*dirY > 5000){
             if(dirY*dirY>dirX*dirX){
                 if(dirY<0) {
                     Log.d("move","up");

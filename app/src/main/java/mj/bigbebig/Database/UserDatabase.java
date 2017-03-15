@@ -69,9 +69,9 @@ public class UserDatabase extends SQLiteOpenHelper{
                 "wood INTEGER, " +
                 "stone INTEGER, " +
                 "metal INTEGER, " +
-                "protect INTEGER, " +
+                "protect INTEGER, " + //몬스터 잠금(삭제 불가용)
                 "image INTEGER," +
-                "tier INTEGER);"); //몬스터 잠금(삭제 불가용)
+                "tier INTEGER);");
         userData.close();
     }
 
@@ -191,11 +191,15 @@ public class UserDatabase extends SQLiteOpenHelper{
                 "stone INTEGER, " +
                 "metal INTEGER, " +
                 "protect INTEGER, " +
-                "image INTEGER" +
+                "image INTEGER, " +
                 "tier INTEGER);");
         //몬스터데이터 저장
+
+
         for(int i = 0; i<ud.monList.size(); i++){
-            db.execSQL("INSERT INTO " + ud.getId() + " VALUES (" + i + ", '" + ud.getMon_name(i) + "', " + ud.getMon_size(i)
+            db.execSQL("INSERT INTO " + ud.getId() + " VALUES (" + i
+                    + ", '"+ ud.getMon_name(i)
+                    + "', "+ ud.getMon_size(i)
                     + ", " + ud.getMon_hp(i)
                     + ", " + ud.getMon_attack(i)
                     + ", " + ud.getMon_armor(i)
