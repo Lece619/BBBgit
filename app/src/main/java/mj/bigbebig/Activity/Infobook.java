@@ -3,8 +3,11 @@ package mj.bigbebig.Activity;
 import android.app.Activity;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -14,33 +17,31 @@ import mj.bigbebig.R;
  * Created by Seo on 2017-03-14.
  */
 public class Infobook extends Activity{
+    Handler handler = new Handler();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infobook);
-        ImageView iv = (ImageView)findViewById(R.id.infoanim);
+        ImageView bookanim = (ImageView)findViewById(R.id.infoanim);
         final AnimationDrawable drawable =
-                (AnimationDrawable) iv.getBackground();
+                (AnimationDrawable) bookanim.getBackground();
         drawable.start();
-        drawable.setOneShot(true);
-
-    }
-    private void setAnimation(Animation animation)
-    {
-        animation.setAnimationListener(new Animation.AnimationListener() {
+        Thread thread = new Thread(new Runnable() {
             @Override
-            public void onAnimationStart(Animation animation) {
+            public void run() {
+                try{Thread.sleep(3000);}catch(Exception e){}
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        drawable.stop();
+                        Button btn_char = (Button)findViewById(R.id.btn_character);
+                        btn_char.setVisibility(View.VISIBLE);
+                    }
+                });
+            }
 
-            }
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                Button a = (Button)findViewById(R.id.btn_character);
-                a.setVisibility(View.VISIBLE);
-            }
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
         });
+        thread.start();
     }
+
 }
 
