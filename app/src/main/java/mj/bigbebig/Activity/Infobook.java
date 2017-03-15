@@ -19,6 +19,7 @@ public class Infobook extends Activity{
         img = (ImageView)findViewById(R.id.infoanim);
         ani = (AnimationDrawable)img.getDrawable();
         ani.setOneShot(true);
+
     }
 
 }

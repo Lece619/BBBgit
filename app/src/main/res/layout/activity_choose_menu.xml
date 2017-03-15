@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/infobook"
+        android:id="@+id/bnt_infobook"
         android:src="@drawable/infobook"
         android:layout_gravity="left|top"
         android:layout_width="50dp"

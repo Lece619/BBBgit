@@ -15,8 +15,6 @@ import mj.bigbebig.R;
  */
 
 public class ChooseMenu_Act extends Activity {
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,16 +27,16 @@ public class ChooseMenu_Act extends Activity {
     public void onClick(View view) {
         switch (view.getId()){
             //메뉴 페이지 이동
-            case R.id.infobook:
-                startActivity(new Intent(getApplicationContext(),Infobook.class));
+            case R.id.bnt_infobook:
+                startActivity(new Intent(getApplicationContext(), Infobook.class));
                 break;
 
             //행성 페이지 이동
             case R.id.btn_chooseplanet:
                 startActivity(new Intent(getApplicationContext(),ChoosePlanet.class));
                 break;
-            //캐릭터 정보보기
 
+            //캐릭터 정보보기
             case R.id.btn_character:
                 startActivity(new Intent(getApplicationContext(), CharacterInfo.class));
                 break;

@@ -31,6 +31,7 @@
         <activity android:name=".Activity.CharacterInfo"/>
         <activity android:name=".Activity.ReadyFight" />
         <activity android:name=".Activity.FightResult" />
+        <activity android:name=".Activity.Infobook" />
     </application>
 
 </manifest>
