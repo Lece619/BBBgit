@@ -18,10 +18,15 @@ import mj.bigbebig.R;
  */
 public class Infobook extends Activity{
     Handler handler = new Handler();
+    Button btn_skill,btn_tool,btn_char;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infobook);
         ImageView bookanim = (ImageView)findViewById(R.id.infoanim);
+        btn_skill   = (Button)findViewById((R.id.btn_skill));
+        btn_tool = (Button)findViewById((R.id.btn_tools));
+        btn_char = (Button)findViewById(R.id.btn_character);
+
         final AnimationDrawable drawable =
                 (AnimationDrawable) bookanim.getBackground();
         drawable.start();
@@ -33,12 +38,12 @@ public class Infobook extends Activity{
                     @Override
                     public void run() {
                         drawable.stop();
-                        Button btn_char = (Button)findViewById(R.id.btn_character);
                         btn_char.setVisibility(View.VISIBLE);
+                        btn_tool.setVisibility(View.VISIBLE);
+                        btn_skill.setVisibility(View.VISIBLE);
                     }
                 });
             }
-
         });
         thread.start();
     }
