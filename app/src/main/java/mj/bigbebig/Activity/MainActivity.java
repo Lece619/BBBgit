@@ -25,7 +25,7 @@ import mj.bigbebig.R;
  *  Updated by jk on 2017-03-15 - github 연결
  *  Test123213
  * seo test2
- * jino112
+ * jino112213
  */
 
 public class MainActivity extends Activity {
