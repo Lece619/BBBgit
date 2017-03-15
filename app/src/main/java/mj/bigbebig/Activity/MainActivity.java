@@ -26,6 +26,8 @@ import mj.bigbebig.R;
  *  Test123213
  * seo test2
  * jino112213
+ * mk92mk92mk92mk92mk92mk92mk92mk92
+ * jino
  */
 
 public class MainActivity extends Activity {
