@@ -9,6 +9,7 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -124,9 +125,22 @@ public class CombineTool_Act extends Activity {
                     combineResult=monster.combine(user_zero.monList.get(j), user_zero.monList.get(k));
                     user_zero.monList.set(j, combineResult);
                     user_zero.monList.remove(k);
-                    update();
                     view.setClickable(false);
-                    result();
+                    final Handler handler=new Handler();
+                    Thread thread= new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try{Thread.sleep(2000);}catch(Exception e){}
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    update();
+                                    result();
+                                }
+                            });
+                        }
+                    });
+                    thread.start();
                 }else
                     Toast.makeText(this, "조합할 몬스터를 선택해 주세요", Toast.LENGTH_SHORT).show();
                 break;
@@ -165,8 +179,8 @@ public class CombineTool_Act extends Activity {
             j -= 1;
             btn[j].setBackgroundColor(Color.GRAY);
         }
-        num1_name.setText(user_zero.getMon_name(j));
-        num1_img.setImageResource(monster.getData(user_zero.getMon_name(j), 13));
+        num1_name.setText(/*user_zero.getMon_name(j)*/"");
+        num1_img.setImageResource(0/*monster.getData(user_zero.getMon_name(j), 13)*/);
         num2_name.setText(" ");
         num2_img.setImageResource(0);
         btn[k].setBackgroundColor(Color.BLACK);
@@ -175,6 +189,7 @@ public class CombineTool_Act extends Activity {
     }
 
     public void result(){
+
         final LayoutInflater inflater=getLayoutInflater();
         final View resultview=inflater.inflate(R.layout.finish_combine,null);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
