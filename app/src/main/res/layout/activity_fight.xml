@@ -18,10 +18,10 @@
 
         <ImageView
             android:id="@+id/enemy_img"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:src="@drawable/woodboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:src="@drawable/woodboard"
             android:layout_marginBottom="100dp"
             android:layout_marginLeft="40dp"/>
         <LinearLayout
@@ -36,8 +36,8 @@
 
     <ImageView
         android:id="@+id/mine_img"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/americano"
         android:layout_gravity="bottom|center"
         android:layout_marginBottom="60dp"/>

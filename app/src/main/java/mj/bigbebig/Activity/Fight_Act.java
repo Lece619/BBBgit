@@ -87,12 +87,13 @@ public class Fight_Act extends Activity {
         mine_image=(ImageView)findViewById(R.id.mine_img);
         attackAnime= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.attack);
         skill2Anime= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.skill);
-        minesize=mine.getSize();
-        enemysize=enemy.getSize();
+        minesize=270;
+        enemysize=(enemy.getSize()*300)/mine.getSize();
         Toast.makeText(this, ""+enemysize+minesize, Toast.LENGTH_SHORT).show();
 
-
-        enemy_image.setMaxHeight(enemysize+200);enemy_image.setMaxWidth(enemysize+200);
+        enemy_image.setAdjustViewBounds(true);
+        mine_image.setAdjustViewBounds(true);
+        enemy_image.setMaxHeight(enemysize);enemy_image.setMaxWidth(enemysize);
         mine_image.setMaxWidth(minesize);mine_image.setMaxHeight(minesize);
         enemy_image.setImageResource(enemy.getImg());
         mine_image.setImageResource(monster.getData(mine.getName(),13));
