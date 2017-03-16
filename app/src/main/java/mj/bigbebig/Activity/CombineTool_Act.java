@@ -152,6 +152,7 @@ public class CombineTool_Act extends Activity {
         if(j>k) {
             btn[j].setBackgroundColor(Color.BLACK);
             j -= 1;
+            btn[j].setBackgroundColor(Color.GRAY);
         }
         num1_name.setText(user_zero.getMon_name(j));
         num1_img.setImageResource(monster.getData(user_zero.getMon_name(j), 13));
