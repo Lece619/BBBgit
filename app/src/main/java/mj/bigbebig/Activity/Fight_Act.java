@@ -46,8 +46,8 @@ public class Fight_Act extends Activity {
     Fighting_Monster mine;
 
     Fight_Infomation fI;
-    int mineMonNum;
-    int enemyMonNum;
+    int mineMonNum,minesize;
+    int enemyMonNum,enemysize;
 
     Handler handler=new Handler();
 
@@ -87,8 +87,16 @@ public class Fight_Act extends Activity {
         mine_image=(ImageView)findViewById(R.id.mine_img);
         attackAnime= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.attack);
         skill2Anime= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.skill);
+        minesize=mine.getSize();
+        enemysize=enemy.getSize();
+        Toast.makeText(this, ""+enemysize+minesize, Toast.LENGTH_SHORT).show();
+
+
+        enemy_image.setMaxHeight(enemysize+200);enemy_image.setMaxWidth(enemysize+200);
+        mine_image.setMaxWidth(minesize);mine_image.setMaxHeight(minesize);
         enemy_image.setImageResource(enemy.getImg());
         mine_image.setImageResource(monster.getData(mine.getName(),13));
+
 
         //HP바 색상 변경, 맥스 HP 설정
         enemy_HPbar=(ProgressBar)findViewById(enemy_HP);

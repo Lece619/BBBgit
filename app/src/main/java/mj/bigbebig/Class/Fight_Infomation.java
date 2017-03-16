@@ -20,7 +20,7 @@ public class Fight_Infomation {
     //생성자
     public Fight_Infomation(int mineMonNum,int enemyMonNum){
         Random random=new Random();
-        enemyMonNum=random.nextInt(5)+1;
+        enemyMonNum=random.nextInt(9)+1;
         enemy=new Fighting_Monster(monster.fightMonster(enemyMonNum));
         mine =new Fighting_Monster(user_zero.monList.get(mineMonNum).fightMonster());
     }

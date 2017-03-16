@@ -178,6 +178,7 @@ public class Monster extends SQLiteOpenHelper {
             monster[8]=cs.getInt(13);
         }
         cs.close();
+        db.close();
         return monster;
     }
 
