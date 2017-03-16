@@ -70,7 +70,7 @@ public class MainActivity extends Activity {
 							login_out.performClick();
 						}
 					});
-					try{Thread.sleep(1000);}catch (Exception e){}
+					try{Thread.sleep(800);}catch (Exception e){}
 					handler.post(new Runnable() {
 						@Override
 						public void run() {
@@ -134,8 +134,8 @@ public class MainActivity extends Activity {
 					dialog.setCanceledOnTouchOutside(false);               //외부터치 종료 x
 					EditText loginId = (EditText) loginView.findViewById(R.id.edit_loginID);
 					EditText loginPw = (EditText) loginView.findViewById(R.id.edit_loginPW);
-					loginId.setText(udb.getResID());
-					loginPw.setText(udb.getResPw());
+					loginId.setText(udb.getResID());//최근아이디 입력
+					loginPw.setText(udb.getResPw());//최근비번 입력
 
 					//로그인 버튼
 					login.setOnClickListener(new View.OnClickListener() {

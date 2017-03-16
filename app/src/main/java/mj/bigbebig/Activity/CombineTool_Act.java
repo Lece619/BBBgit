@@ -1,13 +1,17 @@
 package mj.bigbebig.Activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -68,6 +72,7 @@ public class CombineTool_Act extends Activity {
         num1_img.setImageResource(monster.getData(user_zero.getMon_name(j), 13));
 
 
+
         k=-1;
         View.OnClickListener listener=new View.OnClickListener() {
             @Override
@@ -80,6 +85,8 @@ public class CombineTool_Act extends Activity {
                         k = i;
                         num2_img.setImageResource(monster.getData(user_zero.getMon_name(k), 13));
                         btn[j].setBackgroundColor(Color.GRAY);
+                        Button combine=(Button)findViewById(R.id.btn_doCombin);
+                        combine.setClickable(true);
 
                         if(user_zero.getMon_Protect(i)==0) btn_protect.setBackgroundColor(Color.GRAY);
                         else{
@@ -108,6 +115,8 @@ public class CombineTool_Act extends Activity {
 
     public void onClick(View view) {
         switch (view.getId()){
+
+            //조합
             case R.id.btn_doCombin:
                 //애니메이션 스타트
                 if(k!=-1) {
@@ -116,6 +125,8 @@ public class CombineTool_Act extends Activity {
                     user_zero.monList.set(j, combineResult);
                     user_zero.monList.remove(k);
                     update();
+                    view.setClickable(false);
+                    result();
                 }else
                     Toast.makeText(this, "조합할 몬스터를 선택해 주세요", Toast.LENGTH_SHORT).show();
                 break;
@@ -159,6 +170,36 @@ public class CombineTool_Act extends Activity {
         num2_name.setText(" ");
         num2_img.setImageResource(0);
         btn[k].setBackgroundColor(Color.BLACK);
+        k=-1;
+
+    }
+
+    public void result(){
+        final LayoutInflater inflater=getLayoutInflater();
+        final View resultview=inflater.inflate(R.layout.finish_combine,null);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(resultview);
+
+        Button ok = (Button) resultview.findViewById(R.id.btn_ok);
+
+        final AlertDialog dialog = builder.create();
+        ImageView resultImage =(ImageView)resultview.findViewById(R.id.combine_result);
+        TextView resultName=(TextView)resultview.findViewById(R.id.combine_result_name);
+        resultImage.setImageResource(user_zero.getMon_Image(j));
+        resultName.setText(user_zero.getMon_name(j));
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);  //타이틀 없애기
+        dialog.setCanceledOnTouchOutside(false);               //외부터치 종료 x
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//투명화
+
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                startActivity(new Intent(getApplicationContext(),ToolList.class));
+                finish();
+            }
+        });
+        dialog.show();
     }
 
     /*
