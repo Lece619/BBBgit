@@ -12,31 +12,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center">
-            <Button
+            <ImageView
                 android:layout_margin="100dp"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:text=" "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:onClick="onClick"
                 android:id="@+id/btn1"
-                android:background="@drawable/planet_1"/>
-            <Button
+                android:src="@drawable/planet_1"/>
+            <ImageView
                 android:layout_margin="110dp"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:text=" "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:onClick="onClick"
                 android:id="@+id/btn2"
-                android:background="@drawable/planet_2"/>
-            <Button
+                android:src="@drawable/planet_2"/>
+            <ImageView
                 android:layout_marginLeft="1000dp"
                 android:layout_marginRight="30dp"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:text=" "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:onClick="onClick"
                 android:id="@+id/btn3"
-                android:background="@drawable/planet_3"/>
+                android:src="@drawable/planet_3"/>
 <!--            <Button
                 android:layout_width="200dp"
                 android:layout_height="200dp"
