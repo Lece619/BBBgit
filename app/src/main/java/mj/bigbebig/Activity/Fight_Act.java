@@ -87,7 +87,7 @@ public class Fight_Act extends Activity {
         mine_image=(ImageView)findViewById(R.id.mine_img);
         attackAnime= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.attack);
         skill2Anime= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.skill);
-        minesize=270;
+        minesize=300;
         enemysize=(enemy.getSize()*300)/mine.getSize();
         Toast.makeText(this, ""+enemysize+minesize, Toast.LENGTH_SHORT).show();
 
