@@ -15,6 +15,7 @@ import mj.bigbebig.R;
 
 /**
  * Created by Seo on 2017-03-14.
+ * ㅎㅇ
  */
 public class Infobook extends Activity{
     Handler handler = new Handler();
