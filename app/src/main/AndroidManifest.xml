@@ -28,10 +28,11 @@
         <activity android:name=".Activity.MakeStrong" />
         <activity android:name=".Activity.CombineTool_Act" />
         <activity android:name=".Activity.SkillList" />
-        <activity android:name=".Activity.CharacterInfo"/>
+        <activity android:name=".Activity.CharacterInfo" />
         <activity android:name=".Activity.ReadyFight" />
         <activity android:name=".Activity.FightResult" />
         <activity android:name=".Activity.Infobook" />
+        <activity android:name=".Activity.ReadyFight_two"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created by jh on 2017 03 03.-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:text="던전 정보"
+                android:textSize="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"/>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+            <ImageView
+                android:id="@+id/readyMonsterImg"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="10dp"/>
+            <!--몬스터 정보-->
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:orientation="vertical"
+                android:layout_toRightOf="@+id/readyMonsterImg">
+                <TextView
+                    android:id="@+id/readyMonInfo_0"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="크 기"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/readyMonInfo_1"
+                    android:layout_marginLeft="10dp"
+                    android:text="공격력"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/readyMonInfo_2"
+                    android:layout_marginLeft="10dp"
+                    android:text="방어력"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/readyMonInfo_3"
+                    android:layout_marginLeft="10dp"
+                    android:text="체력"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/readyMonInfo_4"
+                android:text="속성 정보"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"/>
+            <TextView
+                android:id="@+id/readyMonInfo_5"
+                android:text="속성 정보"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/readyMonInfo_4"/>
+            <TextView
+                android:id="@+id/readyMonInfo_6"
+                android:text="속성 정보"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/readyMonInfo_5"/>
+            <Button
+                android:id="@+id/chooseMonster_Btn"
+                android:text="몬스터 선택"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:onClick="onClick"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+            <ImageView
+                android:src="@drawable/planet_4"
+                android:id="@+id/chooseSkill_1"
+                android:layout_marginTop="40dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_toLeftOf="@+id/chooseSkill_2"
+                />
+            <ImageView
+                android:src="@drawable/planet_4"
+                android:id="@+id/chooseSkill_2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                />
+            <ImageView
+                android:src="@drawable/planet_4"
+                android:id="@+id/chooseSkill_3"
+                android:layout_marginTop="40dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_toRightOf="@+id/chooseSkill_2"/>
+            <TextView
+                android:id="@+id/chooseSkill_info"
+                android:text="skill 정보"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"/>
+            <Button
+                android:id="@+id/chooseSkill_Btn"
+                android:text="스킬 선택"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:onClick="onClick"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_dofight"
+                android:text="Fight!"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="onClick"/>
+            <Button
+                android:id="@+id/btn_back"
+                android:text="취 소"
+                android:layout_weight="3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="onClick"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--몬스터 선택-->
+    <LinearLayout
+        android:id="@+id/chooseMonster_layout"
+        android:visibility="invisible"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bonobono">
+            <GridLayout
+                android:layout_width="330dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center|top"
+                android:columnCount="3"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/readyMonster1"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp" />
+                <Button
+                    android:id="@+id/readyMonster2"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=""/>
+                <Button
+                    android:id="@+id/readyMonster3"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=""/>
+                <Button
+                    android:id="@+id/readyMonster4"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=""/>
+                <Button
+                    android:id="@+id/readyMonster5"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=" "/>
+                <Button
+                    android:id="@+id/readyMonster6"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=" "/>
+                <Button
+                    android:id="@+id/readyMonster7"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=" "/>
+                <Button
+                    android:id="@+id/readyMonster8"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=""/>
+                <Button
+                    android:id="@+id/readyMonster9"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=""/>
+                <Button
+                    android:id="@+id/readyMonster10"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=""/>
+                <Button
+                    android:id="@+id/readyMonster11"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=""/>
+                <Button
+                    android:id="@+id/readyMonster12"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=""/>
+                <Button
+                    android:id="@+id/readyMonster13"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=""/>
+                <Button
+                    android:id="@+id/readyMonster14"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=""/>
+                <Button
+                    android:id="@+id/readyMonster15"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=""/>
+                <Button
+                    android:id="@+id/readyMonster16"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=""/>
+                <Button
+                    android:id="@+id/readyMonster17"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=""/>
+                <Button
+                    android:id="@+id/readyMonster18"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=""/>
+                <Button
+                    android:id="@+id/readyMonster19"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=""/>
+                <Button
+                    android:id="@+id/readyMonster20"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:text=""/>
+
+
+
+
+            </GridLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <!--스킬 선택-->
+    <LinearLayout
+        android:visibility="invisible"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+
+    </LinearLayout>
+</RelativeLayout>
