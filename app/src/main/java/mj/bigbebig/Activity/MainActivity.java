@@ -77,12 +77,9 @@ public class MainActivity extends Activity {
 							login.performClick();
 						}
 					});
-
-
 				}
 			});
 			thread.start();
-
 		}
 
 	public void onClick(View v){
