@@ -1,12 +1,19 @@
 package mj.bigbebig.Activity;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import mj.bigbebig.R;
 
@@ -18,7 +25,9 @@ public class Infobook extends Activity{
     Button btn_skill,btn_tool,btn_char;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_infobook);
+
         ImageView bookanim = (ImageView)findViewById(R.id.infoanim);
         btn_skill   = (Button)findViewById((R.id.btn_skill));
         btn_tool = (Button)findViewById((R.id.btn_tools));
@@ -44,6 +53,19 @@ public class Infobook extends Activity{
         });
         thread.start();
     }
-
+    public void onClick(View view)
+    {
+        switch (view.getId()) {
+            case R.id.btn_character:
+                startActivity(new Intent(getApplicationContext(), CharacterInfo.class));
+                break;
+            case R.id.btn_tools:
+                startActivity(new Intent(getApplicationContext(), ToolList.class));
+                break;
+            case R.id.btn_skill:
+                startActivity(new Intent(getApplicationContext(), SkillList.class));
+                break;
+        }
+    }
 }
 

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import mj.bigbebig.R;
 
@@ -27,7 +28,7 @@ public class ChooseMenu_Act extends Activity {
     public void onClick(View view) {
         switch (view.getId()){
             //메뉴 페이지 이동
-            case R.id.bnt_infobook:
+            case R.id.btn_infobook:
                 startActivity(new Intent(getApplicationContext(), Infobook.class));
                 break;
 

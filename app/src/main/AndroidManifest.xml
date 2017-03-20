@@ -31,6 +31,9 @@
         <activity android:name=".Activity.CharacterInfo" />
         <activity android:name=".Activity.ReadyFight" />
         <activity android:name=".Activity.FightResult" />
+        <activity android:name=".Activity.Infobook"
+            android:theme="@android:style/Theme.Translucent"/>
+        //android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
         <activity android:name=".Activity.Infobook" />
         <activity android:name=".Activity.ReadyFight_two"></activity>
     </application>

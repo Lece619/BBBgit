@@ -42,9 +42,9 @@ public class MonsterLoad extends Activity {
             monster.insert("metal100", 50, 50, 50, 60,/**/ 0, 0, 100,/**/ 1, 1, 1, 1, R.drawable.bonobono,1);
             monster.insert("arrow", 50, 50, 70, 40,/**/ 70, 0, 30,/**/ 1, 1, 2, 1, R.drawable.arrow,2);
             monster.insert("pencil", 50, 30, 30, 20,/**/ 70, 30, 0,/**/ 1, 1, 1, 1, R.drawable.pencil,1);
-            monster.insert("st70mt30", 40, 50, 70, 40,/**/ 0, 70, 30,/**/ 1, 1, 2, 1, R.drawable.bonobono,1);
-            monster.insert("st70wd30", 40, 50, 70, 40,/**/ 30, 70, 0,/**/ 1, 1, 2, 1, R.drawable.bonobono,1);
-            monster.insert("mt70wd30", 40, 50, 70, 40,/**/ 30, 0, 70,/**/ 1, 1, 2, 1, R.drawable.bonobono,1);
+            monster.insert("st70mt30", 50, 50, 70, 40,/**/ 0, 70, 30,/**/ 1, 1, 2, 1, R.drawable.bonobono,1);
+            monster.insert("st70wd30", 50, 50, 70, 40,/**/ 30, 70, 0,/**/ 1, 1, 2, 1, R.drawable.bonobono,1);
+            monster.insert("mt70wd30", 50, 50, 70, 40,/**/ 30, 0, 70,/**/ 1, 1, 2, 1, R.drawable.bonobono,1);
             monster.insert("mt70st30", 40, 50, 70, 40,/**/ 0, 30, 70,/**/ 1, 1, 2, 1, R.drawable.bonobono,1);
 
             /*//2티어
