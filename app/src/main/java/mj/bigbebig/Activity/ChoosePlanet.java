@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 
@@ -20,42 +21,71 @@ import static mj.bigbebig.R.id.btn4;
 public class ChoosePlanet extends Activity {
 	ImageView[] planets=new ImageView[3];
 	Button btn;
-	HorizontalScrollView hs;
+	public static HorizontalScrollView planetScroll;
     Handler handler;
+	private FrameLayout fl;
+	private ChoosePlanet_surface cs;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_chooseplanet);
-		hs=(HorizontalScrollView)findViewById(R.id.ScrollView);
+		planetScroll=(HorizontalScrollView)findViewById(R.id.ScrollView);
 		btn=(Button)findViewById(R.id.btn4);
 		planets[0]=(ImageView)findViewById(R.id.btn1); //
 		planets[1]=(ImageView)findViewById(btn2);	   // 둘다 가능?
 		planets[2]=(ImageView)findViewById(btn3);
-		for(ImageView planet : planets){
+		fl=(FrameLayout)findViewById(R.id.choosePlanet_layout);
+		cs=new ChoosePlanet_surface(this);/*
+		cs.setLayoutParams(new ViewGroup.LayoutParams(fl.getWidth(),fl.getHeight()));*/
+		fl.addView(cs);
+
+		/*for(ImageView planet : planets){
 			planet.setAdjustViewBounds(true);
 			planet.setMaxHeight(400);planet.setMaxWidth(400);
-		}
-
+		}*/
 	}
 
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case btn1:
+				cs.onOFF=false;
+				cs.surfaceDestroyed(cs.getHolder());
 				startActivity(new Intent(getApplicationContext(), FirstPlanet.class));
+
 				finish();
+
 				break;
 			case btn2:
+				cs.onOFF=false;
+				cs.surfaceDestroyed(cs.getHolder());
 				startActivity(new Intent(getApplicationContext(), SecondPlanet.class));
 				finish();
 				break;
 			case btn3:
+				cs.onOFF=false;
+				cs.surfaceDestroyed(cs.getHolder());
 				startActivity(new Intent(getApplicationContext(), ThirdPlanet.class));
 				finish();
 				break;
 			case btn4:
+				cs.onOFF=false;
+				cs.surfaceDestroyed(cs.getHolder());
 				finish();
 				break;
 		}
 	}
+
+	/*public boolean onTouchEvent(MotionEvent e){
+		switch (e.getAction()){
+			case MotionEvent.ACTION_DOWN:
+				Toast.makeText(ChoosePlanet.this, ""+hs.getScrollY(), Toast.LENGTH_SHORT).show();
+				break;
+			case MotionEvent.ACTION_UP:
+				Toast.makeText(getApplicationContext(), ""+hs.getScrollY(), Toast.LENGTH_SHORT).show();
+				break;
+		}
+
+		return true;
+	}*/
 }
