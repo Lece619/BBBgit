@@ -87,25 +87,27 @@ public class MapDatabase extends SQLiteOpenHelper {
         Cursor cs = db.rawQuery("SELECT * FROM FP", null);
 
        while(cs.moveToNext()){
-            randomplanet[cs.getInt(1)][cs.getInt(2)][0] = cs.getInt(3);//이동 가능 여부
-            randomplanet[cs.getInt(1)][cs.getInt(2)][1] = cs.getInt(4);//환경 요소
-            Random random = new Random();
-            int num = random.nextInt(100);
-            int num2;
-            if(num < 10){
-                randomplanet[cs.getInt(1)][cs.getInt(2)][2] = 0;
-                randomplanet[cs.getInt(1)][cs.getInt(2)][3] = 0;
-            }
-            else if(num < 70){
-                num2 = random.nextInt(monster.size());
-                randomplanet[cs.getInt(1)][cs.getInt(2)][2] = 1;
-                randomplanet[cs.getInt(1)][cs.getInt(2)][3] = num2;
-            }
-            else {
-                randomplanet[cs.getInt(1)][cs.getInt(2)][2] = 2;
-                randomplanet[cs.getInt(1)][cs.getInt(2)][3] = random.nextInt(3) + 1;
-            }
-        }
+           randomplanet[cs.getInt(1)][cs.getInt(2)][0] = cs.getInt(3);//이동 가능 여부
+           randomplanet[cs.getInt(1)][cs.getInt(2)][1] = cs.getInt(4);//환경 요소
+           randomplanet[cs.getInt(1)][cs.getInt(2)][2] = 0;
+
+           Random random = new Random();
+           int num = random.nextInt(100);
+           int num2;
+           if(num < 10){
+               randomplanet[cs.getInt(1)][cs.getInt(2)][3] = 0;
+               randomplanet[cs.getInt(1)][cs.getInt(2)][4] = 0;
+           }
+           else if(num < 70){
+               num2 = random.nextInt(monster.size());
+               randomplanet[cs.getInt(1)][cs.getInt(2)][3] = 1;
+               randomplanet[cs.getInt(1)][cs.getInt(2)][4] = num2;
+           }
+           else {
+               randomplanet[cs.getInt(1)][cs.getInt(2)][3] = 2;
+               randomplanet[cs.getInt(1)][cs.getInt(2)][4] = random.nextInt(3) + 1;
+           }
+       }
        db.close();
 
     }
