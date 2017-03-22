@@ -73,6 +73,12 @@ public class ChoosePlanet extends Activity {
 				break;
 		}
 	}
+	@Override
+	public void onBackPressed(){
+		cs.onOFF=false;
+		cs.surfaceDestroyed(cs.getHolder());
+		super.onBackPressed();
+	}
 
 	/*public boolean onTouchEvent(MotionEvent e){
 		switch (e.getAction()){
