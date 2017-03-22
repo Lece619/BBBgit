@@ -3,7 +3,6 @@ package mj.bigbebig.Activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -22,7 +21,6 @@ public class ChoosePlanet extends Activity {
 	ImageView[] planets=new ImageView[3];
 	Button btn;
 	public static HorizontalScrollView planetScroll;
-    Handler handler;
 	private FrameLayout fl;
 	private ChoosePlanet_surface cs;
 
