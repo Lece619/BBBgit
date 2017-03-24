@@ -60,7 +60,7 @@ public class Infobook extends Activity{
             case R.id.btn_character:
                 startActivity(new Intent(getApplicationContext(), CharacterInfo.class));
                 break;
-            case R.id.btn_tools:
+            case R.id.btn_collect:
                 startActivity(new Intent(getApplicationContext(), ToolList.class));
                 break;
             case R.id.btn_skill:
