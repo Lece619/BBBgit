@@ -58,12 +58,16 @@ public class user {
     }
 
     //protobox 생성 함수
-    public void makeMonster(){
+    public boolean makeMonster(){
         String name = "protobox";
-        monList.add(new usermonster(name, monster.getData(name,"size"),monster.getData(name,"hp"),
-                monster.getData(name,"attack"), monster.getData(name,"armor"),
-                monster.getData(name,"wood"), monster.getData(name,"stone"), monster.getData(name,"metal"),
-                0, monster.getData(name,"image"),monster.getData(name,"tier")));
+        if(monList.size() < 20){
+            monList.add(new usermonster(name, monster.getData(name,"size"),monster.getData(name,"hp"),
+                    monster.getData(name,"attack"), monster.getData(name,"armor"),
+                    monster.getData(name,"wood"), monster.getData(name,"stone"), monster.getData(name,"metal"),
+                    0, monster.getData(name,"image"),monster.getData(name,"tier")));
+            return true;
+        }
+        else return false;
     }
 
     //경험치 획득 함수

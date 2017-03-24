@@ -3,15 +3,23 @@ package mj.bigbebig.Activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.InetAddress;
+import java.net.Socket;
+
 import mj.bigbebig.Class.usermonster;
 import mj.bigbebig.R;
 
+import static java.net.InetAddress.getLocalHost;
 import static mj.bigbebig.Activity.MainActivity.user_zero;
 import static mj.bigbebig.Activity.MonsterLoad.monster;
 import static mj.bigbebig.R.id.metal;
@@ -34,6 +42,11 @@ public class MakeStrong extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_strong);
+
+
+
+
+
         Intent it = getIntent();
         mon_num = it.getIntExtra("mon_num", 0);
         sb[0] = (SeekBar) findViewById(wood);
