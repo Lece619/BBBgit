@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import mj.bigbebig.R;
 
+import static android.R.attr.maxHeight;
+import static android.R.attr.maxWidth;
 import static mj.bigbebig.Activity.ChoosePlanet.planetScroll;
 
 /**
@@ -38,8 +40,10 @@ public class ChoosePlanet_surface extends SurfaceView implements SurfaceHolder.C
         super(context);
         holder=getHolder();
         holder.addCallback(this);
-        Rect rect=holder.getSurfaceFrame();
-        holder.setFixedSize(rect.width(),rect.height());
+        Rect rect = holder.getSurfaceFrame();
+        if (rect.width() > maxWidth || rect.height() > maxHeight) {
+            holder.setFixedSize(maxWidth, maxHeight);
+        }
         onOFF=true;
     }
 /*
