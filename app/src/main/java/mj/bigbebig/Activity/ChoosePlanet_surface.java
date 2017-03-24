@@ -109,6 +109,7 @@ public class ChoosePlanet_surface extends SurfaceView implements SurfaceHolder.C
                 canvas = null;
                 try {
                     canvas = holder.lockCanvas(null);
+
                     synchronized (holder) {
                         canvassSize=canvas.getWidth()/1850;
                         canvas.drawBitmap(back, 0, 0, null);
