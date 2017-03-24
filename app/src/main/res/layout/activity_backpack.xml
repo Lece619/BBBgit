@@ -2,5 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:id="@+id/btn_character"
+        android:onClick="onClick"
+        android:background="#903030"
+        android:textColor="#ffffff"
+        android:text="캐릭터"/>
 </LinearLayout>

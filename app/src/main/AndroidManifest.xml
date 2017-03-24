@@ -34,6 +34,7 @@
         <activity android:name=".Activity.FightResult" />
         <activity android:name=".Activity.Infobook"
             android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name=".Activity.Backpack"></activity>
         //android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
         <activity android:name=".Activity.ReadyFight_two"></activity>
     </application>

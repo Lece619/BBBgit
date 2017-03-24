@@ -65,7 +65,10 @@ public class ChooseMenu_Act extends Activity {
             case R.id.btn_infobook:
                 startActivity(new Intent(getApplicationContext(), Infobook.class));
                 break;
-
+            //배낭 페이지 이동
+            case R.id.btn_backpack:
+                startActivity(new Intent(getApplicationContext(), Backpack.class));
+                break;
             //행성 페이지 이동
             case R.id.btn_chooseplanet:
                 startActivity(new Intent(getApplicationContext(),ChoosePlanet.class));
