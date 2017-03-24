@@ -22,7 +22,7 @@ import mj.bigbebig.R;
  */
 public class Infobook extends Activity{
     Handler handler = new Handler();
-    Button btn_skill,btn_tool,btn_char, btn_back;
+    Button btn_skill,btn_collect,btn_char, btn_back;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -30,7 +30,7 @@ public class Infobook extends Activity{
 
         ImageView bookanim = (ImageView)findViewById(R.id.infoanim);
         btn_skill   = (Button)findViewById((R.id.btn_skill));
-        btn_tool = (Button)findViewById((R.id.btn_tools));
+        btn_collect = (Button)findViewById((R.id.btn_collect));
         btn_char = (Button)findViewById(R.id.btn_character);
         btn_back = (Button)findViewById(R.id.btn_back);
         final AnimationDrawable drawable =
@@ -45,7 +45,7 @@ public class Infobook extends Activity{
                     public void run() {
                         drawable.stop();
                         btn_char.setVisibility(View.VISIBLE);
-                        btn_tool.setVisibility(View.VISIBLE);
+                        btn_collect.setVisibility(View.VISIBLE);
                         btn_skill.setVisibility(View.VISIBLE);
                         btn_back.setVisibility(View.VISIBLE);
                     }

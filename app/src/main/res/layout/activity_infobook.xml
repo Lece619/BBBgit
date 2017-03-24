@@ -34,11 +34,11 @@
             android:layout_width="60dp"
             android:layout_height="40dp"
             android:layout_margin="5dp"
-            android:id="@+id/btn_tools"
+            android:id="@+id/btn_collect"
             android:onClick="onClick"
             android:background="#903030"
             android:textColor="#ffffff"
-            android:text="도 구"
+            android:text="도 감"
             android:visibility="invisible"/>
 
         <Button
