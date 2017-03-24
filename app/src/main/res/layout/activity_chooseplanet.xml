@@ -12,7 +12,7 @@
 
         <FrameLayout
             android:id="@+id/choosePlanet_layout"
-            android:layout_width="wrap_content"
+            android:layout_width="1100dp"
             android:layout_height="match_parent"
             android:gravity="center">
             <LinearLayout
@@ -26,14 +26,14 @@
                     android:onClick="onClick"
                     android:id="@+id/btn1"/>
                 <ImageView
-                    android:layout_marginLeft="300dp"
+                    android:layout_marginLeft="100dp"
                     android:layout_width="250dp"
                     android:layout_height="250dp"
                     android:onClick="onClick"
                     android:id="@+id/btn2"
                     android:src="@drawable/planet_2"/>
                 <ImageView
-                    android:layout_marginLeft="650dp"
+                    android:layout_marginLeft="100dp"
                     android:layout_marginRight="50dp"
                     android:layout_width="300dp"
                     android:layout_height="300dp"

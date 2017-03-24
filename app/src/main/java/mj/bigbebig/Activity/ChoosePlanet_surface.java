@@ -118,7 +118,7 @@ public class ChoosePlanet_surface extends SurfaceView implements SurfaceHolder.C
                     canvas = holder.lockCanvas(null);
 
                     synchronized (holder) {
-                        canvassSize=canvas.getWidth()/1850;
+                        canvassSize=canvas.getWidth()/1100;
                         canvas.drawBitmap(back, 0, 0, null);
                         if(planetScroll.getScrollX()<160*canvassSize) {
                             if(reset==0) {
@@ -128,31 +128,31 @@ public class ChoosePlanet_surface extends SurfaceView implements SurfaceHolder.C
                             planet1 = Bitmap.createScaledBitmap(planet1, 200*canvassSize - planetScroll.getScrollX(),
                                                                 200*canvassSize - planetScroll.getScrollX(), true);
                         }
-                        else if(planetScroll.getScrollX()>400*canvassSize
-                                &&planetScroll.getScrollX()<750*canvassSize) {
+                        else if(planetScroll.getScrollX()>300*canvassSize
+                                &&planetScroll.getScrollX()<550*canvassSize) {
                             if(reset==0) {
                                 planet2 = BitmapFactory.decodeResource(res, R.drawable.planet_2);
                             }
-                            planet2=Bitmap.createScaledBitmap(planet2,300*canvassSize-planetScroll.getScrollX()+400*canvassSize,
-                                                            300*canvassSize-planetScroll.getScrollX()+400*canvassSize,true);
+                            planet2=Bitmap.createScaledBitmap(planet2,250*canvassSize-planetScroll.getScrollX()+300*canvassSize,
+                                                            250*canvassSize-planetScroll.getScrollX()+300*canvassSize,true);
 
                         }
-                        else if(planetScroll.getScrollX()>1300*canvassSize&&
-                                planetScroll.getScrollX()<2000*canvassSize) {
+                        else if(planetScroll.getScrollX()>700*canvassSize&&
+                                planetScroll.getScrollX()<1100*canvassSize) {
                             if(reset==0) {
                                 planet3 = BitmapFactory.decodeResource(res, R.drawable.planet_3);
                             }
-                            planet3=Bitmap.createScaledBitmap(planet3,400*canvassSize-planetScroll.getScrollX()+1300*canvassSize,
-                                    400*canvassSize-planetScroll.getScrollX()+1300*canvassSize,true);
+                            planet3=Bitmap.createScaledBitmap(planet3,300*canvassSize-planetScroll.getScrollX()+700*canvassSize,
+                                    300*canvassSize-planetScroll.getScrollX()+700*canvassSize,true);
 
                         }
                         else reset=0;
                         //100dp  1850dp canvas.getWidth
-                        canvas.drawBitmap(planet1, 100*(canvas.getWidth()/1850),
+                        canvas.drawBitmap(planet1, 100*canvassSize,
                                 canvas.getHeight()/2-planet1.getHeight()/2, null);
-                        canvas.drawBitmap(planet2, 600*(canvas.getWidth()/1850),
+                        canvas.drawBitmap(planet2, 400*canvassSize,
                                 canvas.getHeight()/2-planet2.getHeight()/2, null);
-                        canvas.drawBitmap(planet3, 1500*(canvas.getWidth()/1850),
+                        canvas.drawBitmap(planet3, 750*canvassSize,
                                 canvas.getHeight()/2-planet3.getHeight()/2, null);
                         canvas.drawText("df "+planetScroll.getScrollX()+" "+count,600,300,paint);
 
