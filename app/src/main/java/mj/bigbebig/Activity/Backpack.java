@@ -32,7 +32,11 @@ public class Backpack extends Activity{
 
         btn_tool = (Button)findViewById((R.id.btn_tools));
         btn_back = (Button)findViewById(R.id.btn_back);
+        */
 
+        ImageView iv = (ImageView)findViewById(R.id.backpackanim);
+        GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(iv);
+        GlideDrawableImageViewTarget into = Glide.with(getApplicationContext()).load(R.raw.kyo3).into(imageViewTarget);
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -40,18 +44,12 @@ public class Backpack extends Activity{
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        drawable.stop();
-                        btn_tool.setVisibility(View.VISIBLE);
-                        btn_back.setVisibility(View.VISIBLE);
+                        Glide.with(getApplicationContext()).onStop();
                     }
                 });
             }
         });
         thread.start();
-        */
-        ImageView iv = (ImageView)findViewById(R.id.backpackanim);
-        GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(iv);
-        GlideDrawableImageViewTarget into = Glide.with(this).load(R.raw.kyo3).into(imageViewTarget);
 
     }
     public void onClick(View view)
