@@ -10,6 +10,9 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
+
 import mj.bigbebig.R;
 
 /**
@@ -22,12 +25,14 @@ public class Backpack extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_backpack);
-        ImageView bookanim = (ImageView)findViewById(R.id.backpackanim);
-        btn_tool = (Button)findViewById((R.id.btn_tools));
-        btn_back = (Button)findViewById(R.id.btn_back);
+        /*ImageView bookanim = (ImageView)findViewById(R.id.backpackanim);
         final AnimationDrawable drawable =
                 (AnimationDrawable) bookanim.getBackground();
         drawable.start();
+
+        btn_tool = (Button)findViewById((R.id.btn_tools));
+        btn_back = (Button)findViewById(R.id.btn_back);
+
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -43,6 +48,11 @@ public class Backpack extends Activity{
             }
         });
         thread.start();
+        */
+        ImageView iv = (ImageView)findViewById(R.id.backpackanim);
+        GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(iv);
+        GlideDrawableImageViewTarget into = Glide.with(this).load(R.raw.kyo3).into(imageViewTarget);
+
     }
     public void onClick(View view)
     {
