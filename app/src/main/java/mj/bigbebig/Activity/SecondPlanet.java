@@ -2,6 +2,7 @@ package mj.bigbebig.Activity;
 //2017-02-03
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -25,6 +26,17 @@ public class SecondPlanet extends Activity {
 		spsurface = new SPsurface(this);
 		fl.addView(spsurface);
 	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data){
+		if(resultCode == Activity.RESULT_OK){
+			spsurface.th_run = 1;
+		}
+		if (resultCode == Activity.RESULT_CANCELED) {
+			spsurface.th_run = 1;
+		}
+	}
+
 	public void onClick(View v){
 		switch(v.getId()){
 			case R.id.btn_back:
@@ -34,7 +46,7 @@ public class SecondPlanet extends Activity {
 				break;
 			case R.id.btn_map:
 				//mapbtn.setVisibility(View.GONE);
-				spsurface.spthread.th_run = 2;
+				spsurface.th_run = 2;
 				break;
 		}
 	}

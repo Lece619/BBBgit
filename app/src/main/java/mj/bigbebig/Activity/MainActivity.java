@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -12,6 +13,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 
 import mj.bigbebig.Class.user;
 import mj.bigbebig.Database.UserDatabase;
@@ -141,7 +148,7 @@ public class MainActivity extends Activity {
 							EditText loginId = (EditText) loginView.findViewById(R.id.edit_loginID);
 							EditText loginPw = (EditText) loginView.findViewById(R.id.edit_loginPW);
 
-							if(udb.dologin(loginId.getText().toString(), loginPw.getText().toString())){
+							if(udb.dologin(loginId.getText().toString(), loginPw.getText().toString()) == 2){
 
 								String id = loginId.getText().toString();
 								//속성 로드
@@ -157,6 +164,52 @@ public class MainActivity extends Activity {
 								login_out.setText("Logout");
 								//Toast.makeText(getApplicationContext(), loginId.getText().toString() + "로 로그인", Toast.LENGTH_SHORT).show();
 								Toast.makeText(getApplicationContext(), user_zero.monList.size() + "입니다.", Toast.LENGTH_SHORT).show();
+
+								//로그인 네트워크
+								Thread network = new Thread(){
+									public void run(){
+										try{
+											String serverIP = "192.168.43.18";//ip.getHostAddress();
+											String information = null;
+
+											Socket socket = new Socket(serverIP, 5000);
+
+
+											PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+											out.println("login");
+											out.println(udb.getResID());
+											out.println(udb.getResPw());
+
+											BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+											while(true){
+												information = in.readLine();
+
+												break;
+											}
+											if(information =="0"){
+												Toast.makeText(getApplicationContext(), "아이디가 없습니다", Toast.LENGTH_SHORT).show();
+											}
+											else if(information =="1"){
+												Toast.makeText(getApplicationContext(), "비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
+											}
+											else if(information =="2"){
+												Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+											}
+
+											Log.d("Server", "연결을 종료합니다." + information);
+
+											in.close();
+											out.close();
+											socket.close();
+
+										} catch(IOException ie){
+											ie.printStackTrace();
+										} catch (Exception e){
+											e.printStackTrace();
+										}
+									}
+								};
+								network.start();
 							}
 							else Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
 						}
@@ -195,6 +248,39 @@ public class MainActivity extends Activity {
 										makeUser.setEnabled(false);
 										Toast.makeText(getApplicationContext(), ID + " 생성불가", Toast.LENGTH_SHORT).show();
 									}
+
+									//회원가입 네트워크
+									Thread network = new Thread(){
+									public void run() {
+										try {
+											String serverIP = "192.168.43.18";//ip.getHostAddress();
+											String information = null;
+
+											Socket socket = new Socket(serverIP, 5000);
+
+
+											PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+											out.println("makeID");
+											out.println(makeID.getText().toString());
+											out.println(makePW1.getText().toString());
+
+											BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+											information = in.readLine();
+
+											Log.d("Server", "연결을 종료합니다." + information);
+
+											in.close();
+											out.close();
+											socket.close();
+
+										} catch (IOException ie) {
+											ie.printStackTrace();
+										} catch (Exception e) {
+											e.printStackTrace();
+										}
+									}
+								};
+									network.start();
 								}
 							});
 

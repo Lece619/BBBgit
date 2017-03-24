@@ -83,8 +83,9 @@ public class ToolList extends Activity {
                 break;
 
             case R.id.btn_mktool:
-                if(user_zero.monList.size() < 20) {
-                    user_zero.makeMonster();
+                boolean mkmonster;
+                mkmonster = user_zero.makeMonster();
+                if(mkmonster){
                     Toast.makeText(getApplicationContext(), "도구 갯수는 " + user_zero.monList.size() + "개 입니다.", Toast.LENGTH_SHORT).show();
                     Intent it = getIntent();
                     finish();
