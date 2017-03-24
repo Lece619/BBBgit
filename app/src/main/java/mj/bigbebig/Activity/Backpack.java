@@ -22,7 +22,7 @@ public class Backpack extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_backpack);
-        ImageView bookanim = (ImageView)findViewById(R.id.infoanim);
+        ImageView bookanim = (ImageView)findViewById(R.id.backpackanim);
         btn_tool = (Button)findViewById((R.id.btn_tools));
         btn_back = (Button)findViewById(R.id.btn_back);
         final AnimationDrawable drawable =
