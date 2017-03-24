@@ -36,7 +36,7 @@ public class ChoosePlanet extends Activity {
 		fl=(FrameLayout)findViewById(R.id.choosePlanet_layout);
 		cs=new ChoosePlanet_surface(this);/*
 		cs.setLayoutParams(new ViewGroup.LayoutParams(fl.getWidth(),fl.getHeight()));*/
-		//fl.addView(cs);
+		fl.addView(cs);
 
 		/*for(ImageView planet : planets){
 			planet.setAdjustViewBounds(true);
