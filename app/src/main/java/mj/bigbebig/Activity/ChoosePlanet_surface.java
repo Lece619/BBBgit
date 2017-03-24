@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.HorizontalScrollView;
@@ -37,6 +38,8 @@ public class ChoosePlanet_surface extends SurfaceView implements SurfaceHolder.C
         super(context);
         holder=getHolder();
         holder.addCallback(this);
+        Rect rect=holder.getSurfaceFrame();
+        holder.setFixedSize(rect.width(),rect.height());
         onOFF=true;
     }
 /*
