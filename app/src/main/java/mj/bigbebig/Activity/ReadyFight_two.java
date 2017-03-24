@@ -78,7 +78,8 @@ public class ReadyFight_two extends Activity {
                 break;
 
             case R.id.btn_back:
-                startActivityForResult(new Intent(getApplication(), SecondPlanet.class), 0);
+                Intent rtit = getIntent();
+                setResult(RESULT_OK, rtit);
                 finish();
                 break;
 

@@ -75,11 +75,6 @@ public class UserDatabase extends SQLiteOpenHelper{
         userData.close();
     }
 
-    public void delId(String id){
-        SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("DROP TABLE " + id);
-    }
-
     //최근 등록된 아이디 출력
     public String getResID(){
         SQLiteDatabase db = getReadableDatabase();
@@ -120,17 +115,20 @@ public class UserDatabase extends SQLiteOpenHelper{
     }
 
     //로그인
-    public boolean dologin(String id, String pwd){
+    public int dologin(String id, String pwd){
         SQLiteDatabase db = getReadableDatabase();
         Cursor cs = db.rawQuery("SELECT * FROM USER", null);
+        int confirm = 0;
         while(cs.moveToNext()){
             if(cs.getString(1).equals(id)){
+                confirm = 1;
                 if(cs.getString(2).equals(pwd)){
-                    return true;
+                    confirm = 2;
+                    return confirm;
                 }
             }
         }
-        return false;
+        return confirm;
     }
 
     //데이터 불러오기
@@ -166,7 +164,6 @@ public class UserDatabase extends SQLiteOpenHelper{
                             monster.getData(name,"wood"), monster.getData(name,"stone"), monster.getData(name,"metal"),
                             0, monster.getData(name,"image"),monster.getData(name,"tier")));
                 }
-
         }
     }
 

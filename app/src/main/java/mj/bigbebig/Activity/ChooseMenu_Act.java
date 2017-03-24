@@ -3,11 +3,19 @@ package mj.bigbebig.Activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.InetAddress;
+import java.net.Socket;
 
 import mj.bigbebig.R;
+
+import static java.net.InetAddress.getLocalHost;
 
 /**
  * Created by Jino on 2017-02-21.
@@ -23,6 +31,32 @@ public class ChooseMenu_Act extends Activity {
         //배경 이미지 설정
         LinearLayout mainLayout=(LinearLayout)findViewById(R.id.layout_main);
         mainLayout.setBackgroundResource(R.drawable._back1);
+
+        Thread network = new Thread(){
+            public void run(){
+                try{
+                    InetAddress ip = getLocalHost();
+                    String serverIP = "192.168.43.17";//ip.getHostAddress();
+
+                    Socket socket = new Socket(serverIP, 5000);
+
+                    InputStream in = socket.getInputStream();
+                    DataInputStream dis = new DataInputStream(in);
+
+                    Log.d("Server", "Message: " + dis.readUTF());
+                    Log.d("Server", "연결을 종료합니다.");
+
+                    dis.close();
+                    socket.close();
+
+                } catch(IOException ie){
+                    ie.printStackTrace();
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        };
+        network.start();
     }
 
     public void onClick(View view) {
@@ -49,7 +83,7 @@ public class ChooseMenu_Act extends Activity {
 
             //스킬 메뉴 선택하기
             case R.id.btn_skill:
-                startActivity(new Intent(getApplicationContext(), SkillList.class));
+                startActivity(new Intent(getApplicationContext(), SecondPlanet.class));
                 break;
 
             //메인으로 돌아가기
