@@ -15,8 +15,6 @@ import android.widget.Toast;
 
 import mj.bigbebig.R;
 
-import static android.R.attr.maxHeight;
-import static android.R.attr.maxWidth;
 import static mj.bigbebig.Activity.ChoosePlanet.planetScroll;
 
 /**
@@ -41,9 +39,10 @@ public class ChoosePlanet_surface extends SurfaceView implements SurfaceHolder.C
         holder=getHolder();
         holder.addCallback(this);
         Rect rect = holder.getSurfaceFrame();
-        if (rect.width() > maxWidth || rect.height() > maxHeight) {
+        /*if (rect.width() > maxWidth || rect.height() > maxHeight) {
             holder.setFixedSize(maxWidth, maxHeight);
-        }
+        }*/
+        holder.setFixedSize(rect.width(),rect.height());
         onOFF=true;
     }
 /*
@@ -128,7 +127,7 @@ public class ChoosePlanet_surface extends SurfaceView implements SurfaceHolder.C
                             planet1 = Bitmap.createScaledBitmap(planet1, 200*canvassSize - planetScroll.getScrollX(),
                                                                 200*canvassSize - planetScroll.getScrollX(), true);
                         }
-                        else if(planetScroll.getScrollX()>300*canvassSize
+                        else if(planetScroll.getScrollX()>200*canvassSize
                                 &&planetScroll.getScrollX()<550*canvassSize) {
                             if(reset==0) {
                                 planet2 = BitmapFactory.decodeResource(res, R.drawable.planet_2);
@@ -137,7 +136,7 @@ public class ChoosePlanet_surface extends SurfaceView implements SurfaceHolder.C
                                                             250*canvassSize-planetScroll.getScrollX()+300*canvassSize,true);
 
                         }
-                        else if(planetScroll.getScrollX()>700*canvassSize&&
+                        else if(planetScroll.getScrollX()>600*canvassSize&&
                                 planetScroll.getScrollX()<1100*canvassSize) {
                             if(reset==0) {
                                 planet3 = BitmapFactory.decodeResource(res, R.drawable.planet_3);
@@ -146,6 +145,7 @@ public class ChoosePlanet_surface extends SurfaceView implements SurfaceHolder.C
                                     300*canvassSize-planetScroll.getScrollX()+700*canvassSize,true);
 
                         }
+                        //
                         else reset=0;
                         //100dp  1850dp canvas.getWidth
                         canvas.drawBitmap(planet1, 100*canvassSize,
