@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight=".1"
+        android:layout_gravity="center"
+        android:textSize="40dp"
+        android:text="탐  험  결  과"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".1"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:layout_margin="3dp"
+            android:text="나  무"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:layout_margin="3dp"
+            android:text="암  석"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:layout_margin="3dp"
+            android:text="금  속"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".1"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:layout_margin="3dp"
+            android:id="@+id/wood"
+            android:text="나  무"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:layout_margin="3dp"
+            android:id="@+id/stone"
+            android:text="암  석"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:layout_margin="3dp"
+            android:id="@+id/metal"
+            android:text="금  속"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".1"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/set_level"
+            android:text="10"
+            android:layout_marginLeft="20dp"
+            android:clickable="false"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <ProgressBar
+            android:id="@+id/expBar"
+            android:layout_alignParentBottom="true"
+            android:layout_width="290dp"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@+id/set_level"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:max="100"
+            android:progress="100"/>
+        <TextView
+            android:id="@+id/exp_num"
+            android:text="50/100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/expBar"
+            android:layout_alignRight="@+id/expBar"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".7"/>
+</LinearLayout>
