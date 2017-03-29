@@ -15,12 +15,14 @@ import static mj.bigbebig.Activity.MonsterLoad.monster;
 
 public class user {
 
-    public user(String id, int level, int expmax, int exp, int skillpoint, int story, int element[], int skill_rank[][]){
+    public user(String id, int level, int expmax, int exp, int skillpoint, int story, int element[]){
         this.id = id; this.level = level; this.expmax = expmax; this.exp = exp; this.skillpoint = skillpoint; this.story = story;
         for(int i = 0 ; i < ele_num; i++){
             this.element[i] = element[i];
         }
-        skill = new UserSkill(skill_rank);
+        /*skill = new UserSkill(skill_rank);*/ //수정 at 2017 0329
+        if(id!=null)
+        skill=new NewUserSkill(id);
     }
 
     private int ele_num = 3;
@@ -31,7 +33,8 @@ public class user {
     private int exp;
     private int skillpoint;
     private int story;
-    private UserSkill skill;
+    public NewUserSkill skill;
+    /*private UserSkill skill;*///수정 at 2017 0329
     public List<usermonster> monList = new ArrayList<usermonster>();
 
     //사용자 정보 get함수
@@ -112,11 +115,11 @@ public class user {
     //몬스터 정보 set함수
     public void setMon_Protect(int i, int j) { monList.get(i).protect = j; }
 
-    //스킬 정보 get함수
+  /*  //스킬 정보 get함수
     public String getSkill_Name(int i, int j) { return skill.skill[i].getSkill_Name(j); }
     public String getSkill_Info(int i, int j) { return skill.skill[i].getSkill_Info(j); }
     public int getSkill_Rank(int i, int j) { return skill.skill[i].skillrank[j]; }
 
     //스킬 정보 set함수
-    public void setSkill_Rank(int i, int j){ skill.skill[i].skillrank[j]++; }
+    public void setSkill_Rank(int i, int j){ skill.skill[i].skillrank[j]++; }*///수정 at 2017 0329
 }

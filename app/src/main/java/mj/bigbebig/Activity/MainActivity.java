@@ -24,6 +24,8 @@ import mj.bigbebig.Class.user;
 import mj.bigbebig.Database.UserDatabase;
 import mj.bigbebig.R;
 
+import static mj.bigbebig.Activity.MonsterLoad.userskilldata;
+
 
 /**
  *  updated by mk on 2017-02-22
@@ -62,7 +64,7 @@ public class MainActivity extends Activity {
 			int skill3[] = {0,0,0,0,0};
 			int skill4[] = {0,0,0,0,0};
 			int skill5[][] = {skill1, skill2, skill3, skill4};
-			user_zero = new user(null,0, 0, 0, 0, 0, data, skill5);
+			user_zero = new user(null,0, 0, 0, 0, 0, data);
 			startActivity(new Intent(getApplicationContext(), MonsterLoad.class)); //몬스터 데이터베이스를 불러오는 액티비티로 넘어감
 
 			//자동 로그인
@@ -101,6 +103,7 @@ public class MainActivity extends Activity {
 			case R.id.btn2:
 				if(login_out.getText().toString().equals("Login")==false){
 					udb.saveData(user_zero);
+					userskilldata.savaSkillData(user_zero);
 				Toast.makeText(getApplicationContext(), "저장 되었습니다", Toast.LENGTH_SHORT).show();}
 				else Toast.makeText(getApplicationContext(), "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
 				break;
@@ -153,12 +156,8 @@ public class MainActivity extends Activity {
 								String id = loginId.getText().toString();
 								//속성 로드
 								int data[] = {udb.loadData(id, 8), udb.loadData(id, 9), udb.loadData(id, 10)};
-								int skill1[] = {0,0,0,0,0};
-								int skill2[] = {0,0,0,0,0};
-								int skill3[] = {0,0,0,0,0};
-								int skill4[] = {0,0,0,0,0};
-								int skill5[][] = {skill1, skill2, skill3, skill4};
-								user_zero = new user(id, udb.loadData(id, 3), udb.loadData(id, 4), udb.loadData(id, 5), udb.loadData(id, 6), udb.loadData(id, 7), data, skill5);
+								//스킬부분 user 생성자 속에 포함
+								user_zero = new user(id, udb.loadData(id, 3), udb.loadData(id, 4), udb.loadData(id, 5), udb.loadData(id, 6), udb.loadData(id, 7), data);
 								udb.loadM(user_zero);
 								dialog.dismiss();
 								login_out.setText("Logout");
@@ -296,6 +295,7 @@ public class MainActivity extends Activity {
 
 
 											udb.makeID(makeID.getText().toString(), makePW1.getText().toString());
+											userskilldata.makeID_Skill(makeID.getText().toString());
 											Toast.makeText(getApplicationContext(), "아이디 생성완료", Toast.LENGTH_SHORT).show();
 											makeIDdialog.dismiss();
 										} else

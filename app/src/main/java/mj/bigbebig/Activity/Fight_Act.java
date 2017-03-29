@@ -54,7 +54,7 @@ public class Fight_Act extends Activity {
     TextView enemy_name,enemy_HP_num,mine_HP_num,mine_name;
     ProgressBar enemy_HPbar,mine_HPbar;
     Button skill1,skill2,run;
-    ImageView enemy_image, mine_image;
+    ImageView enemy_image, mine_image,userSkill1,userSkill2,userSkill3;
     Animation attackAnime, skill2Anime;
 
     int mineMaxHP, enemyMaxHP;
@@ -125,6 +125,12 @@ public class Fight_Act extends Activity {
 
         //진도
         vibe=(Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+
+        //유저스킬
+        userSkill1=(ImageView)findViewById(R.id.btn_userSkill1);
+        userSkill2=(ImageView)findViewById(R.id.btn_userSkill2);
+        userSkill3=(ImageView)findViewById(R.id.btn_userSkill3);
+
 
     }
 

@@ -84,6 +84,7 @@ public class UserDatabase extends SQLiteOpenHelper{
         while(cursor.moveToNext()){
             result = cursor.getString(1);
         }
+        cursor.close();
         return result;
     }
     //최근 등록된 비밀번호 출력
@@ -95,6 +96,7 @@ public class UserDatabase extends SQLiteOpenHelper{
         while(cursor.moveToNext()){
             result = cursor.getString(2);
         }
+        cursor.close();
         return result;
     }
 

@@ -120,7 +120,9 @@
         android:layout_gravity="bottom|right"
         android:layout_marginBottom="10dp"
         android:orientation="vertical">
+
         <ImageView
+            android:padding="5dp"
             android:id="@+id/btn_userSkill1"
             android:src="@drawable/planet_2"
             android:layout_width="60dp"
@@ -129,15 +131,20 @@
             android:layout_margin="5dp"
             android:onClick="onClick"/>
         <LinearLayout
+
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:gravity="center">
             <ImageView
+                android:id="@+id/btn_userSkill2"
+                android:padding="5dp"
                 android:src="@drawable/planet_3"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginRight="5dp" />
             <ImageView
+                android:id="@+id/btn_userSkill3"
+                android:padding="5dp"
                 android:src="@drawable/planet_1"
                 android:layout_width="60dp"
                 android:layout_height="60dp"

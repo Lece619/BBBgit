@@ -22,15 +22,38 @@ public class SkillList extends Activity {
     Button btn[] = new Button[5];
     int skill_type = 0;
     int skill_num = 0;
+    String[][] skillName;
+    int[][] skillLev;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skill_list);
+        Toast.makeText(this, " " + user_zero.skill.getskillInfo(1, 1), Toast.LENGTH_SHORT).show();
+        skillName = user_zero.skill.skillInfo;//나중에 겟으로 교체
+        skillLev = user_zero.skill.skillLevel;
+
+
         tv[0] = (TextView) findViewById(R.id.skillpoint);
         tv[1] = (TextView) findViewById(R.id.skillrank);
         tv_skillinfo = (TextView) findViewById(R.id.skill_info);
-        for(int i = 0;i<5;i++) btn[i] = (Button) findViewById(R.id.btn_skill1 + i);
+        for (int i = 0; i < 5; i++) btn[i] = (Button) findViewById(R.id.btn_skill1 + i);
         updateAct(0);
+        View.OnClickListener listener = new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                for(int i = 0 ; i < 5; i++) {
+                    if (v.getId() == btn[i].getId()) {
+                        tv_skillinfo.setText(""+user_zero.skill.getskillInfo(skill_type, i));
+                        tv[1].setText(skillLev[skill_type][i] + " pt");
+                        /*btn[i].setBackgroundColor(Color.BLACK);
+                        btn[skill_num].setBackgroundColor(Color.GRAY);*/
+                        skill_num = i;
+                    }
+                }
+            }
+        };
+        for(int i = 0; i < 5; i++){ btn[i].setOnClickListener(listener); }
+    }    /*updateAct(0);
 
         //버튼마다 이미지, 텍스트 변경
         View.OnClickListener listener = new View.OnClickListener(){
@@ -40,15 +63,15 @@ public class SkillList extends Activity {
                     if (v.getId() == btn[i].getId()) {
                         tv_skillinfo.setText(user_zero.getSkill_Info(skill_type, i));
                         tv[1].setText(user_zero.getSkill_Rank(skill_type, i) + " pt");
-                        /*btn[i].setBackgroundColor(Color.BLACK);
-                        btn[skill_num].setBackgroundColor(Color.GRAY);*/
+                        *//*btn[i].setBackgroundColor(Color.BLACK);
+                        btn[skill_num].setBackgroundColor(Color.GRAY);*//*
                         skill_num = i;
                     }
                 }
             }
         };
         for(int i = 0; i < 5; i++){ btn[i].setOnClickListener(listener); }
-    }
+    }*/
     public void onClick(View v){
         switch(v.getId()){
             case R.id.btn_reconstruct:
@@ -72,13 +95,13 @@ public class SkillList extends Activity {
                     if(skill_num == 0){
                         skillLevelup();
                     }
-                    else if((skill_num == 1 || skill_num == 2) && (user_zero.getSkill_Rank(skill_type, 0) != 0)){
+                    else if((skill_num == 1 || skill_num == 2)&&(skillLev[skill_type][0] != 0)){
                         skillLevelup();
                     }
-                    else if((skill_num == 3) && (user_zero.getSkill_Rank(skill_type, 1) != 0)){
+                    else if((skill_num == 3) && (skillLev[skill_type][1] != 0)){
                         skillLevelup();
                     }
-                    else if((skill_num == 4) && (user_zero.getSkill_Rank(skill_type, 2) != 0)){
+                    else if((skill_num == 4) && (skillLev[skill_type][2] != 0)){
                         skillLevelup();
                     }
                     else Toast.makeText(getApplication(), "선행 스킬을 배워야합니다. ", Toast.LENGTH_SHORT).show();
@@ -90,16 +113,31 @@ public class SkillList extends Activity {
                 break;
         }
     }
-    public void updateAct(int skill_type){
+
+    /*public void updateAct(int skill_type){
         tv[0].setText(user_zero.getSkillpoint() + " pt");
         tv[1].setText(user_zero.getSkill_Rank(skill_type, 0) + " pt");
         for(int i=0;i<5;i++){
             btn[i].setText(user_zero.getSkill_Name(skill_type, i));
         }
+    }*/
+    public void updateAct(int skill_type){
+        tv[0].setText(user_zero.getSkillpoint() + " pt");
+        tv[1].setText(skillLev[skill_type][0] + " pt");
+        for(int i=0;i<5;i++){
+            btn[i].setText(skillName[skill_type][i]);
+        }
     }
+    /*
     public void skillLevelup(){
         user_zero.setSkillpoint();
         user_zero.setSkill_Rank(skill_type, skill_num);
+        updateAct(skill_type);
+    }*/
+    public void skillLevelup() {
+        user_zero.setSkillpoint();
+        skillLev[skill_type][skill_num]++;
+        user_zero.skill.setSkillLevel(skillLev);
         updateAct(skill_type);
     }
 }

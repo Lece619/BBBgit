@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import mj.bigbebig.Database.MapDatabase;
 import mj.bigbebig.Database.Monster;
+import mj.bigbebig.Database.UserSkillDatabase;
 import mj.bigbebig.R;
 
 /**
@@ -17,6 +18,7 @@ public class MonsterLoad extends Activity {
 
     public static Monster monster;
     public static MapDatabase mapdata;
+    public static UserSkillDatabase userskilldata;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +26,10 @@ public class MonsterLoad extends Activity {
 
         monster = new Monster(getApplicationContext());
         mapdata = new MapDatabase(getApplicationContext());
+        userskilldata=new UserSkillDatabase(getApplicationContext());
         monster.delTable(); //몬스터 데이터베이스 초기화
         mapdata.delTable(); //맵 데이터베이스 초기화
+        Toast.makeText(getApplicationContext()," "+userskilldata.gettest(), Toast.LENGTH_SHORT).show();
         if(!monster.chkData(getApplicationContext())){
             Toast.makeText(getApplicationContext(), "데이터가 없습니다.", Toast.LENGTH_SHORT).show();
             if(mapdata.chkData(getApplicationContext())){
