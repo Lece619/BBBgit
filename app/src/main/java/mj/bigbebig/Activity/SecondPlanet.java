@@ -28,20 +28,20 @@ public class SecondPlanet extends Activity {
 	}
 
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data){
-		if(resultCode == Activity.RESULT_OK){
-			spsurface.th_run = 1;
-		}
-		if (resultCode == Activity.RESULT_CANCELED) {
-			spsurface.th_run = 1;
-		}
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		spsurface.run = true;
+		//spsurface.runrun.run();
 	}
 
 	public void onClick(View v){
 		switch(v.getId()){
 			case R.id.btn_back:
+				Intent it = new Intent(getApplicationContext(), SPResult.class);
+				it.putExtra("complete", spsurface.spinfo.complete());
 				spsurface.surfaceDestroyed(spsurface.getHolder());
 				onDestroy();
+				startActivity(it);
 				finish();
 				break;
 			case R.id.btn_map:

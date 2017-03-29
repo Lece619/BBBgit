@@ -97,15 +97,18 @@ public class MapDatabase extends SQLiteOpenHelper {
            if(num < 10){
                randomplanet[cs.getInt(1)][cs.getInt(2)][3] = 0;
                randomplanet[cs.getInt(1)][cs.getInt(2)][4] = 0;
+               randomplanet[cs.getInt(1)][cs.getInt(2)][5] = 0;
            }
            else if(num < 70){
                num2 = random.nextInt(monster.size());
                randomplanet[cs.getInt(1)][cs.getInt(2)][3] = 1;
                randomplanet[cs.getInt(1)][cs.getInt(2)][4] = num2;
+               randomplanet[cs.getInt(1)][cs.getInt(2)][5] = 1;
            }
            else {
                randomplanet[cs.getInt(1)][cs.getInt(2)][3] = 2;
                randomplanet[cs.getInt(1)][cs.getInt(2)][4] = random.nextInt(3) + 1;
+               randomplanet[cs.getInt(1)][cs.getInt(2)][5] = random.nextInt(3) + 1;
            }
        }
        db.close();
