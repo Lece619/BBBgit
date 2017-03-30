@@ -1,6 +1,7 @@
 package mj.bigbebig.Activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -21,7 +22,8 @@ import static mj.bigbebig.Activity.MonsterLoad.monster;
 /**
  * Created by mk on 2017-03-13.
  * Updated by mk on 2017-03-14 - 움직이는 방향에 따라 좌표 이동하도록 수정, 이동 못할 경우 이동불가 창이 나오도록 변경
- * Updated bu mk on 2017-03-17 - 터치 이벤트에 지도와 관련된 함수 추가
+ * Updated by mk on 2017-03-17 - 터치 이벤트에 지도와 관련된 함수 추가
+ * Updated by mk on 2017-03-28 - 이동 함수를 행성 정보 클래스로 이동
  */
 
 public class SPsurface extends SurfaceView implements SurfaceHolder.Callback, Runnable{
@@ -35,8 +37,6 @@ public class SPsurface extends SurfaceView implements SurfaceHolder.Callback, Ru
     //정보 관련 변수들
     private int prix = 0, priy = 0;
     private int aftx = 0, afty = 0;
-    /*private int[][][] mapInfo = new int[5][4][5];
-    private int[] char_location = new int[2];*/
     protected SPinformation spinfo;
 
 
@@ -66,27 +66,11 @@ public class SPsurface extends SurfaceView implements SurfaceHolder.Callback, Ru
     public void surfaceCreated(SurfaceHolder holder){
 
         spinfo = new SPinformation();
-
-        /*mapdata.getFirstplanet(mapInfo);
-		Random random = new Random();
-		int x, y;
-		do{
-			x = random.nextInt(5);
-			y = random.nextInt(4);
-			if(mapInfo[x][y][0]==1){
-				char_location[0] = x;
-				char_location[1] = y;
-			}
-		}while(mapInfo[x][y][0]==0);
-        mapInfo[char_location[0]][char_location[1]][2] = 1;*/
-
         run = true;
         th_run = 1;
         runrun.start();
     }
-    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height){
-
-    }
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) { }
 
     public void surfaceDestroyed(SurfaceHolder holder){
         boolean retry = true;
@@ -289,18 +273,17 @@ public class SPsurface extends SurfaceView implements SurfaceHolder.Callback, Ru
                 if (afty < ((canvas.getHeight() + map_monster.getHeight()) / 2.) && afty > ((canvas.getHeight() - map_monster.getHeight()) / 2.)) {
                     if(spinfo.getMap_Info(3) == 1) {
                         Log.d("monster", "monsterfight");
-                        spinfo.setCatch_monster();
-                        //run = false;
-                        //context.startActivity(new Intent(context, ReadyFight_two.class));
-
-
+                        //spinfo.setCatch_monster();
+                        run = false;
+                        Intent it = new Intent(context, ReadyFight_two.class);
+                        it.putExtra("mon_num",spinfo.getMap_Info(4));
+                        it.putExtra("mon_size",spinfo.getMap_Info(5));
+                        context.startActivity(it);
                     }
                     else if(spinfo.getMap_Info(3) == 2) {
                         showtext = 2;
                     }
                 }
-
-
             }
         }
     }

@@ -4,10 +4,12 @@ package mj.bigbebig.Activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
+import mj.bigbebig.Class.SPinformation;
 import mj.bigbebig.R;
 
 public class SecondPlanet extends Activity {
@@ -15,6 +17,7 @@ public class SecondPlanet extends Activity {
 	private FrameLayout fl;
 	private SPsurface spsurface;
 	private ImageButton mapbtn;
+	private SPinformation spinfo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +25,7 @@ public class SecondPlanet extends Activity {
 		setContentView(R.layout.activity_secondplanet);
 		fl = (FrameLayout) findViewById(R.id.fl_sp);
 		mapbtn = (ImageButton) findViewById(R.id.btn_map);
-
+		spinfo = new SPinformation();
 		spsurface = new SPsurface(this);
 		fl.addView(spsurface);
 	}
@@ -30,7 +33,9 @@ public class SecondPlanet extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		spsurface.run = true;
+		Log.d("?????","???????????????????????????????????");
+		onResume();
+		//spsurface.run = true;
 		//spsurface.runrun.run();
 	}
 
