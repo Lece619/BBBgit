@@ -16,8 +16,8 @@ public class SecondPlanet extends Activity {
 
 	private FrameLayout fl;
 	private SPsurface spsurface;
-	private ImageButton mapbtn;
 	private SPinformation spinfo;
+	private ImageButton mapbtn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,16 +27,21 @@ public class SecondPlanet extends Activity {
 		mapbtn = (ImageButton) findViewById(R.id.btn_map);
 		spinfo = new SPinformation();
 		spsurface = new SPsurface(this);
+        spsurface.getactivity(this);
+		spsurface.getspinfo(spinfo);
 		fl.addView(spsurface);
 	}
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
+		
+		super.onActivityResult(0, 0, getIntent());
 		Log.d("?????","???????????????????????????????????");
-		onResume();
-		//spsurface.run = true;
-		//spsurface.runrun.run();
+        spsurface = new SPsurface(this);
+        spsurface.getactivity(this);
+		spsurface.getspinfo(spinfo);
+		fl.addView(spsurface);
+		spsurface.run = true;
 	}
 
 	public void onClick(View v){

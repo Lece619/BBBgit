@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import mj.bigbebig.Class.user;
+import mj.bigbebig.R;
 
 /**
  * Created by Jino on 2017-03-28.
@@ -52,16 +53,16 @@ public class UserSkillDatabase extends SQLiteOpenHelper {
                 "skill5 INTEGER NOT NULL);");
 
         // 스킬의 정보가 입력되는 테이블
-        // 스킬이름 스킬정보    스킬쿨타임   지속시간     공격속도     능력수치
-        //skillName skillINFO CoolTime RunningTime  Speed        Ability
+        // 스킬이름 스킬정보    스킬쿨타임   지속시간     공격속도     능력수치  이미지
+        //skillName skillINFO CoolTime RunningTime  Speed        Ability   Image
         userSkillData.execSQL("CREATE TABLE SKILL1INFO (skillName TEXT PRIMARY KEY, skillINFO TEXT," +
-                "CoolTime INTEGER, RunningTime INTEGER, Speed INTEGER, Ability INTEGER);");
+                "CoolTime INTEGER, RunningTime INTEGER, Speed INTEGER, Ability INTEGER,Image INTEGER);");
         userSkillData.execSQL("CREATE TABLE SKILL2INFO (skillName TEXT PRIMARY KEY, skillINFO TEXT," +
-                "CoolTime INTEGER, RunningTime INTEGER, Speed INTEGER, Ability INTEGER);");
+                "CoolTime INTEGER, RunningTime INTEGER, Speed INTEGER, Ability INTEGER,Image INTEGER);");
         userSkillData.execSQL("CREATE TABLE SKILL3INFO (skillName TEXT PRIMARY KEY, skillINFO TEXT," +
-                "CoolTime INTEGER, RunningTime INTEGER, Speed INTEGER, Ability INTEGER);");
+                "CoolTime INTEGER, RunningTime INTEGER, Speed INTEGER, Ability INTEGER,Image INTEGER);");
         userSkillData.execSQL("CREATE TABLE SKILL4INFO (skillName TEXT, skillINFO TEXT," +
-                "CoolTime INTEGER, RunningTime INTEGER, Speed INTEGER, Ability INTEGER);");
+                "CoolTime INTEGER, RunningTime INTEGER, Speed INTEGER, Ability INTEGER,Image INTEGER);");
 
 
         /*delTable("SKILL4INFO");*/
@@ -86,35 +87,35 @@ public class UserSkillDatabase extends SQLiteOpenHelper {
 
     // 스킬번호 스킬정보 스킬쿨타임 지속시간 공격속도 능력수치
     public void Skill1(SQLiteDatabase db){
-        db.execSQL("INSERT INTO SKILL1INFO VALUES ('재구성1','재구성의 첫번째 스킬이다',   1 , 0 , 3 ,4);");
-        db.execSQL("INSERT INTO SKILL1INFO VALUES ('재구성2','재구성의 두번째 스킬이다',   2 , 1 , 23 ,4);");
-        db.execSQL("INSERT INTO SKILL1INFO VALUES ('재구성3','재구성의 세번째 스킬이다',   3 , 0 , 43 ,4);");
-        db.execSQL("INSERT INTO SKILL1INFO VALUES ('재구성4','재구성의 네번째 스킬이다',   4 , 2 , 63 ,4);");
-        db.execSQL("INSERT INTO SKILL1INFO VALUES ('재구성5','재구성의 다섯번째 스킬이다', 5 , 0 , 83 ,4);");
+        db.execSQL("INSERT INTO SKILL1INFO VALUES ('재구성1','재구성의 첫번째 스킬이다',   1 , 0 , 3 ,4,"+ R.drawable.skill1_1+");");
+        db.execSQL("INSERT INTO SKILL1INFO VALUES ('재구성2','재구성의 두번째 스킬이다',   2 , 1 , 23 ,4,"+ R.drawable.skill1_2+");");
+        db.execSQL("INSERT INTO SKILL1INFO VALUES ('재구성3','재구성의 세번째 스킬이다',   3 , 0 , 43 ,4,"+ R.drawable.skill1_3+");");
+        db.execSQL("INSERT INTO SKILL1INFO VALUES ('재구성4','재구성의 네번째 스킬이다',   4 , 2 , 63 ,4,"+ R.drawable.skill1_4+");");
+        db.execSQL("INSERT INTO SKILL1INFO VALUES ('재구성5','재구성의 다섯번째 스킬이다', 5 , 0 , 83 ,4,"+ R.drawable.skill1_5+");");
     }
 
     public void Skill2(SQLiteDatabase db){
-        db.execSQL("INSERT INTO SKILL2INFO VALUES ('분해1','분해의 첫번째 스킬이다',   1 , 0 , 3 ,4);");
-        db.execSQL("INSERT INTO SKILL2INFO VALUES ('분해2','분해의 두번째 스킬이다',   2 , 1 , 23 ,4);");
-        db.execSQL("INSERT INTO SKILL2INFO VALUES ('분해3','분해의 세번째 스킬이다',   3 , 0 , 43 ,4);");
-        db.execSQL("INSERT INTO SKILL2INFO VALUES ('분해4','분해의 네번째 스킬이다',   4 , 2 , 63 ,4);");
-        db.execSQL("INSERT INTO SKILL2INFO VALUES ('분해5','분해의 다섯번째 스킬이다', 5 , 0 , 83 ,4);");
+        db.execSQL("INSERT INTO SKILL2INFO VALUES ('분해1','분해의 첫번째 스킬이다',   1 , 0 , 3 ,4,"+ R.drawable.skill2_1+");");
+        db.execSQL("INSERT INTO SKILL2INFO VALUES ('분해2','분해의 두번째 스킬이다',   2 , 1 , 23 ,4,"+ R.drawable.skill2_2+");");
+        db.execSQL("INSERT INTO SKILL2INFO VALUES ('분해3','분해의 세번째 스킬이다',   3 , 0 , 43 ,4,"+ R.drawable.skill2_3+");");
+        db.execSQL("INSERT INTO SKILL2INFO VALUES ('분해4','분해의 네번째 스킬이다',   4 , 2 , 63 ,4,"+ R.drawable.skill2_4+");");
+        db.execSQL("INSERT INTO SKILL2INFO VALUES ('분해5','분해의 다섯번째 스킬이다', 5 , 0 , 83 ,4,"+ R.drawable.skill2_5+");");
     }
 
     public void Skill3(SQLiteDatabase db){
-        db.execSQL("INSERT INTO SKILL3INFO VALUES ('회복1','회복의 첫번째 스킬이다',   1 , 0 , 3 ,4);");
-        db.execSQL("INSERT INTO SKILL3INFO VALUES ('회복2','회복의 두번째 스킬이다',   2 , 1 , 23 ,4);");
-        db.execSQL("INSERT INTO SKILL3INFO VALUES ('회복3','회복의 세번째 스킬이다',   3 , 0 , 43 ,4);");
-        db.execSQL("INSERT INTO SKILL3INFO VALUES ('회복4','회복의 네번째 스킬이다',   4 , 2 , 63 ,4);");
-        db.execSQL("INSERT INTO SKILL3INFO VALUES ('회복5','회복의 다섯번째 스킬이다', 5 , 0 , 83 ,4);");
+        db.execSQL("INSERT INTO SKILL3INFO VALUES ('회복1','회복의 첫번째 스킬이다',   1 , 0 , 3 ,4,"+ R.drawable.skill3_1+");");
+        db.execSQL("INSERT INTO SKILL3INFO VALUES ('회복2','회복의 두번째 스킬이다',   2 , 1 , 23 ,4,"+ R.drawable.skill3_2+");");
+        db.execSQL("INSERT INTO SKILL3INFO VALUES ('회복3','회복의 세번째 스킬이다',   3 , 0 , 43 ,4,"+ R.drawable.skill3_3+");");
+        db.execSQL("INSERT INTO SKILL3INFO VALUES ('회복4','회복의 네번째 스킬이다',   4 , 2 , 63 ,4,"+ R.drawable.skill3_4+");");
+        db.execSQL("INSERT INTO SKILL3INFO VALUES ('회복5','회복의 다섯번째 스킬이다', 5 , 0 , 83 ,4,"+ R.drawable.skill3_5+");");
     }
 
     public void Skill4(SQLiteDatabase db){
-        db.execSQL("INSERT INTO SKILL4INFO VALUES ('중독1', '중독의 첫번째 스킬이다' ,1, 0 , 3 ,4);");
-        db.execSQL("INSERT INTO SKILL4INFO VALUES ('중독2', '중독의 두번째 스킬이다' ,2, 1 , 23 ,4);");
-        db.execSQL("INSERT INTO SKILL4INFO VALUES ('중독3', '중독의 세번째 스킬이다' ,3, 0 , 43 ,4);");
-        db.execSQL("INSERT INTO SKILL4INFO VALUES ('중독4', '중독의 네번째 스킬이다' ,4, 2 , 63 ,4);");
-        db.execSQL("INSERT INTO SKILL4INFO VALUES ('중독5', '중독의 다섯번째 스킬이다',5, 0 , 83 ,4);");
+        db.execSQL("INSERT INTO SKILL4INFO VALUES ('중독1', '중독의 첫번째 스킬이다' ,1, 0 , 3 ,4,"+ R.drawable.skill4_1+");");
+        db.execSQL("INSERT INTO SKILL4INFO VALUES ('중독2', '중독의 두번째 스킬이다' ,2, 1 , 23 ,4,"+ R.drawable.skill4_2+");");
+        db.execSQL("INSERT INTO SKILL4INFO VALUES ('중독3', '중독의 세번째 스킬이다' ,3, 0 , 43 ,4,"+ R.drawable.skill4_3+");");
+        db.execSQL("INSERT INTO SKILL4INFO VALUES ('중독4', '중독의 네번째 스킬이다' ,4, 2 , 63 ,4,"+ R.drawable.skill4_4+");");
+        db.execSQL("INSERT INTO SKILL4INFO VALUES ('중독5', '중독의 다섯번째 스킬이다',5, 0 , 83 ,4,"+ R.drawable.skill4_5+");");
     }
 
     public String gettest() {
@@ -180,19 +181,44 @@ public class UserSkillDatabase extends SQLiteOpenHelper {
         return skillInfo;
     }
 
+
+    public int[][] getSkillImage(){
+        int[][] skillImage =new int[4][5];
+        SQLiteDatabase db = getWritableDatabase();
+        String[] skillname= {"SKILL1INFO","SKILL2INFO","SKILL3INFO","SKILL4INFO"};
+        int i=0;
+        Cursor cursor;
+        for(String name:skillname) {
+            cursor = db.rawQuery("SELECT * FROM "+name, null);
+            int j=0;
+            while (cursor.moveToNext()){
+                skillImage[i][j]=cursor.getInt(6);
+                j++;
+            }
+            i++;
+            if(i==4) cursor.close();
+        }
+        db.close();
+        return skillImage;
+    }
+
+
     //skillName skillINFO CoolTime RunningTime  Speed        Ability
     public String getskilldata(String data,int i,int j){
         String resultdata=" ";
         SQLiteDatabase db=getReadableDatabase();
         String[] skillname= {"SKILL1INFO","SKILL2INFO","SKILL3INFO","SKILL4INFO"};
         Cursor cs=db.rawQuery("SELECT "+data+" FROM "+skillname[i-1],null);
-        while(cs.moveToFirst())
-            resultdata=cs.getString(0);
+        int num=0;
+        while(cs.moveToNext()){
+            num++;
+            if(num==j) resultdata = cs.getString(0);
+        }
         cs.close();
         db.close();
         return resultdata;
     }
-    //int 형 데이터들
+    //int 형 데이터들  데이터 입력 1-1 이면 그냥 CoolTime,1,1 이런식
     public int getskilldata2(String data,int i,int j){
         int resultdata=0;
         SQLiteDatabase db=getReadableDatabase();

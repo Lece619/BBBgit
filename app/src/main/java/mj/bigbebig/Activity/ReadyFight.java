@@ -24,7 +24,9 @@ public class ReadyFight extends Activity{
     TextView[] readyMonInfo=new TextView[7];//0= 공격력 ,1= 방어력, 3=체력 4,5,6= 속성치
     Button[] chooseReadyMon=new Button[20]; //준비할 몬스터 선택 버튼
     ImageView[] chooseReadyMon1=new ImageView[20];
-    Button chooseMonsterBtn,chooseSkillBtn;
+    Button chooseMonsterBtn;
+    ImageView chooseSkillBtn[]=new ImageView[3];
+    TextView chooseSkillInfo;
     LinearLayout chooseMonserLayout,chooseSkillLayout;
     int j,readyMonsterNum;                    //준비된 몬스터 넘버 -> intent 해줄번호 초기 0;
 
@@ -42,6 +44,29 @@ public class ReadyFight extends Activity{
             readyMonInfo[i]=(TextView)findViewById(R.id.readyMonInfo_0+i);
         }
         updateReadyMonster();
+
+        //스킬정보
+        chooseSkillInfo=(TextView)findViewById(R.id.chooseSkill_info);
+        for(int i=0;i<3;i++) {
+            final int i3=i;
+            chooseSkillBtn[i] = (ImageView) findViewById(R.id.chooseSkill_1+i);
+            chooseSkillBtn[i].setImageResource(user_zero.skill.useSkill[i].image);
+            chooseSkillBtn[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    for(int i=0;i<3;i++){
+                        if(i==i3) chooseSkillInfo.setText(user_zero.skill.useSkill[i3].info);
+                    }
+                }
+            });
+        }
+        Button changSkill=(Button)findViewById(R.id.chooseSkill_Btn);
+        changSkill.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),SkillList.class));
+            }
+        });
 
         //몬스터 선택
         for(j=0;j<20;j++){
@@ -76,6 +101,7 @@ public class ReadyFight extends Activity{
                 break;
 
             case R.id.btn_dofight:
+                /*Intent intent = new Intent(getApplicationContext(),dummy_fight.class);*/
                 Intent intent = new Intent(getApplicationContext(),Fight_Act.class);
                 intent.putExtra("MonNum",readyMonsterNum);
                 startActivity(intent);
