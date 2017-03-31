@@ -7,7 +7,7 @@ import java.util.Random;
 import static mj.bigbebig.Activity.MonsterLoad.mapdata;
 
 /**
- * Created by mk92 on 2017-03-28.
+ * Created by mk92 on 2017-03-28 - 맵에 관련된 정보 및 함수
  */
 
 public class SPinformation {
@@ -20,7 +20,11 @@ public class SPinformation {
     public SPinformation(){
         percent = 0;
         exp = 0;
+
+        //맵 몬스터 및 재료 배치
         mapdata.getFirstplanet(mapInfo);
+
+        //캐릭터 랜덤 배치
         Random random = new Random();
         int x, y;
         do{
@@ -35,6 +39,7 @@ public class SPinformation {
         setPercent();
     }
 
+    //맵 정보 출력 함수
     public int getMap_Info(int i){ return mapInfo[char_location[0]][char_location[1]][i]; }
     public int getMap_Info2(int i, int j, int k){ return mapInfo[i][j][k]; }
     public int[] getChar_location(){ return char_location; }
@@ -115,6 +120,7 @@ public class SPinformation {
         return false;
     }
 
+    //탐험 종료시 전달할 목록들
     public int[] complete(){
         int[] data = new int[5];
         data[0] = element[0];
