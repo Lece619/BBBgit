@@ -1,5 +1,6 @@
 package mj.bigbebig.Activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -28,7 +29,7 @@ import static mj.bigbebig.Activity.MonsterLoad.monster;
 
 public class SPsurface extends SurfaceView implements SurfaceHolder.Callback, Runnable{
 
-    private Context context;
+    private Activity SP_Act;
     private SurfaceHolder holder;
     protected Thread runrun;
     protected boolean run;
@@ -55,20 +56,27 @@ public class SPsurface extends SurfaceView implements SurfaceHolder.Callback, Ru
     //생성자
     public SPsurface(Context context){
         super(context);
-        this.context = context;
         getHolder().addCallback(this);
         runrun  = new Thread(this);
         holder = getHolder();
+        run = true;
+        th_run = 1;
     }
 
+    public void getspinfo(SPinformation spinfo){
+        this.spinfo = spinfo;
+    }
+    public SPinformation setspinfo(){
+        return spinfo;
+    }
+    public void getactivity(Activity act){
+        this.SP_Act = act;
+    }
 //-----------------------------------------------------------------------------------------------------------------------------------------------
     //surfaceView 관련 함수들
     public void surfaceCreated(SurfaceHolder holder){
-
-        spinfo = new SPinformation();
-        run = true;
-        th_run = 1;
-        runrun.start();
+        //spinfo = new SPinformation();
+        if(run) runrun.start();
     }
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) { }
 
@@ -81,6 +89,8 @@ public class SPsurface extends SurfaceView implements SurfaceHolder.Callback, Ru
                 retry = false;
             } catch(InterruptedException e){}
         }
+        Log.d("SurfaceView", "Destroyed Complete");
+        runrun.interrupt();
     }
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -273,12 +283,11 @@ public class SPsurface extends SurfaceView implements SurfaceHolder.Callback, Ru
                 if (afty < ((canvas.getHeight() + map_monster.getHeight()) / 2.) && afty > ((canvas.getHeight() - map_monster.getHeight()) / 2.)) {
                     if(spinfo.getMap_Info(3) == 1) {
                         Log.d("monster", "monsterfight");
-                        //spinfo.setCatch_monster();
-                        run = false;
-                        Intent it = new Intent(context, ReadyFight_two.class);
+                        Intent it = new Intent(SP_Act.getApplicationContext(), ReadyFight_two.class);
                         it.putExtra("mon_num",spinfo.getMap_Info(4));
                         it.putExtra("mon_size",spinfo.getMap_Info(5));
-                        context.startActivity(it);
+                        surfaceDestroyed(holder);
+                        SP_Act.startActivityForResult(it, 0);
                     }
                     else if(spinfo.getMap_Info(3) == 2) {
                         showtext = 2;

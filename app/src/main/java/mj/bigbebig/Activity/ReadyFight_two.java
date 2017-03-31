@@ -71,15 +71,18 @@ public class ReadyFight_two extends Activity {
                 break;
 
             case R.id.btn_dofight:
-                Intent intent = new Intent(getApplicationContext(),Fight_Act.class);
-                intent.putExtra("MonNum",readyMonsterNum);
-                startActivity(intent);
+
+                Intent it = new Intent(getApplicationContext(),Fight_Act.class);
+                it.putExtra("MonNum",readyMonsterNum);
+                startActivityForResult(it, 0);
+                onDestroy();
                 finish();
                 break;
 
             case R.id.btn_back:
                 Intent rtit = getIntent();
                 setResult(RESULT_OK, rtit);
+                onDestroy();
                 finish();
                 break;
 
