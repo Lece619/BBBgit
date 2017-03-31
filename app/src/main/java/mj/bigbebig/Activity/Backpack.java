@@ -24,19 +24,17 @@ public class Backpack extends Activity{
     Button btn_tool, btn_back;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_backpack);
-        /*ImageView bookanim = (ImageView)findViewById(R.id.backpackanim);
+        ImageView bookanim = (ImageView)findViewById(R.id.backpackanim);
+
+        btn_tool = (Button)findViewById((R.id.btn_tools));
+        btn_back = (Button)findViewById(R.id.btn_back);
+
         final AnimationDrawable drawable =
                 (AnimationDrawable) bookanim.getBackground();
         drawable.start();
 
-        btn_tool = (Button)findViewById((R.id.btn_tools));
-        btn_back = (Button)findViewById(R.id.btn_back);
-        */
-
-        ImageView iv = (ImageView)findViewById(R.id.backpackanim);
-        GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(iv);
-        GlideDrawableImageViewTarget into = Glide.with(getApplicationContext()).load(R.raw.kyo3).into(imageViewTarget);
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -44,13 +42,14 @@ public class Backpack extends Activity{
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        Glide.with(getApplicationContext()).onStop();
+                        drawable.stop();
+                        btn_tool.setVisibility(View.VISIBLE);
+                        btn_back.setVisibility(View.VISIBLE);
                     }
                 });
             }
         });
         thread.start();
-
     }
     public void onClick(View view)
     {

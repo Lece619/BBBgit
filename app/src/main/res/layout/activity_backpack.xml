@@ -10,7 +10,9 @@
         android:id="@+id/backpackanim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:background="@drawable/backpackani"/>
+
     <LinearLayout
         android:orientation="vertical"
         android:background="#00FF0000"
