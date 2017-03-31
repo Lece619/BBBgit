@@ -279,6 +279,7 @@ public class SPsurface extends SurfaceView implements SurfaceHolder.Callback, Ru
         }
         else{
             Log.d("fight", "readytofight");
+
             if (aftx < ((canvas.getWidth() + map_monster.getWidth()) / 2.) && aftx > ((canvas.getWidth() - map_monster.getWidth()) / 2.)) {
                 if (afty < ((canvas.getHeight() + map_monster.getHeight()) / 2.) && afty > ((canvas.getHeight() - map_monster.getHeight()) / 2.)) {
                     if(spinfo.getMap_Info(3) == 1) {

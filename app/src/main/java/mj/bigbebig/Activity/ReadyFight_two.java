@@ -80,6 +80,7 @@ public class ReadyFight_two extends Activity {
                 break;
 
             case R.id.btn_back:
+
                 Intent rtit = getIntent();
                 setResult(RESULT_OK, rtit);
                 onDestroy();
