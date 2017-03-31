@@ -3,7 +3,7 @@ package mj.bigbebig.Activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,11 +19,12 @@ public class SkillList extends Activity {
 
     TextView tv[] = new TextView[2];
     TextView tv_skillinfo;
-    Button btn[] = new Button[5];
+    ImageView btn[] = new ImageView[5];
     int skill_type = 0;
     int skill_num = 0;
     String[][] skillName;
     int[][] skillLev;
+    int[][] skillimage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,12 +32,13 @@ public class SkillList extends Activity {
         Toast.makeText(this, " " + user_zero.skill.getskillInfo(1, 1), Toast.LENGTH_SHORT).show();
         skillName = user_zero.skill.skillInfo;//나중에 겟으로 교체
         skillLev = user_zero.skill.skillLevel;
+        skillimage=user_zero.skill.skillimage;
 
 
         tv[0] = (TextView) findViewById(R.id.skillpoint);
         tv[1] = (TextView) findViewById(R.id.skillrank);
         tv_skillinfo = (TextView) findViewById(R.id.skill_info);
-        for (int i = 0; i < 5; i++) btn[i] = (Button) findViewById(R.id.btn_skill1 + i);
+        for (int i = 0; i < 5; i++) btn[i] = (ImageView) findViewById(R.id.btn_skill1 + i);
         updateAct(0);
         View.OnClickListener listener = new View.OnClickListener(){
             @Override
@@ -45,6 +47,7 @@ public class SkillList extends Activity {
                     if (v.getId() == btn[i].getId()) {
                         tv_skillinfo.setText(""+user_zero.skill.getskillInfo(skill_type, i));
                         tv[1].setText(skillLev[skill_type][i] + " pt");
+                        btn[i].setImageResource(skillimage[skill_type][i]);
                         /*btn[i].setBackgroundColor(Color.BLACK);
                         btn[skill_num].setBackgroundColor(Color.GRAY);*/
                         skill_num = i;
@@ -125,7 +128,8 @@ public class SkillList extends Activity {
         tv[0].setText(user_zero.getSkillpoint() + " pt");
         tv[1].setText(skillLev[skill_type][0] + " pt");
         for(int i=0;i<5;i++){
-            btn[i].setText(skillName[skill_type][i]);
+            /*btn[i].setText(skillName[skill_type][i]);*/
+            btn[i].setImageResource(skillimage[skill_type][i]);
         }
     }
     /*

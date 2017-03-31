@@ -9,11 +9,13 @@ import static mj.bigbebig.Activity.MonsterLoad.userskilldata;
 public class NewUserSkill {
     public int skillLevel[][]=new int[4][5];
     public String skillInfo[][]= new String[4][5];
+    public int skillimage[][]=new int[4][5];
 
 
     public NewUserSkill(String id){
        skillLevel= userskilldata.getSkillLevel(id);
        skillInfo=  userskilldata.getSkillinfo();
+       skillimage= userskilldata.getSkillImage();
     }
 
     public void setSkillLevel(int[][] skillLevel) {
