@@ -297,6 +297,10 @@ public class Fight_Act extends Activity {
 
             //도망
             case R.id.btn_run:
+
+                Intent rtit = getIntent();
+                setResult(RESULT_OK, rtit);
+                onDestroy();
                 finish();
                 break;
 
