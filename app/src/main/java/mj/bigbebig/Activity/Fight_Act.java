@@ -25,6 +25,7 @@ import mj.bigbebig.Class.Fight_Infomation;
 import mj.bigbebig.Class.Fighting_Monster;
 import mj.bigbebig.R;
 
+import static mj.bigbebig.Activity.MainActivity.user_zero;
 import static mj.bigbebig.Activity.MonsterLoad.monster;
 import static mj.bigbebig.R.id.enemy_HP;
 import static mj.bigbebig.R.id.mine_HP;
@@ -56,6 +57,7 @@ public class Fight_Act extends Activity {
     Button skill1,skill2,run;
     ImageView enemy_image, mine_image,userSkill1,userSkill2,userSkill3;
     Animation attackAnime, skill2Anime;
+    ImageView[] userSkill=new ImageView[3];
 
     int mineMaxHP, enemyMaxHP;
 
@@ -127,11 +129,13 @@ public class Fight_Act extends Activity {
         vibe=(Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
 
         //유저스킬
-        userSkill1=(ImageView)findViewById(R.id.btn_userSkill1);
+        /*userSkill1=(ImageView)findViewById(R.id.btn_userSkill1);
         userSkill2=(ImageView)findViewById(R.id.btn_userSkill2);
-        userSkill3=(ImageView)findViewById(R.id.btn_userSkill3);
-
-
+        userSkill3=(ImageView)findViewById(R.id.btn_userSkill3);*/
+        for(int i=0;i<3;i++){
+            userSkill[i]=(ImageView)findViewById(R.id.btn_userSkill1+i);
+            userSkill[i].setImageResource(user_zero.skill.useSkill[i].image);
+        }
     }
 
     public void onClick(View view) {
