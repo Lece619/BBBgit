@@ -41,7 +41,7 @@
         //android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
         <activity android:name=".Activity.ReadyFight_two" />
         <activity android:name=".Activity.SPResult"/>
-        <activity android:name=".Activity.Collection"
+        <activity android:name=".Activity.Collection1"
             android:theme="@android:style/Theme.Translucent" />
     </application>
 

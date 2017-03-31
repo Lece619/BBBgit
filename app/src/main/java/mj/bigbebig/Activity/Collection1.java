@@ -9,10 +9,10 @@ import mj.bigbebig.R;
  * Created by Seo on 2017-03-31.
  */
 
-public class Collection extends Activity {
+public class Collection1 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_collection);
+        setContentView(R.layout.activity_collection1);
 
     }
 

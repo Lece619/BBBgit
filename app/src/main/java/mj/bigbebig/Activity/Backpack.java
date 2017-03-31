@@ -38,7 +38,7 @@ public class Backpack extends Activity{
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                try{Thread.sleep(3000);}catch(Exception e){}
+                try{Thread.sleep(1000);}catch(Exception e){}
                 handler.post(new Runnable() {
                     @Override
                     public void run() {

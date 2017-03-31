@@ -2,18 +2,13 @@ package mj.bigbebig.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import mj.bigbebig.R;
 
@@ -39,7 +34,7 @@ public class Infobook extends Activity{
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                try{Thread.sleep(3000);}catch(Exception e){}
+                try{Thread.sleep(1000);}catch(Exception e){}
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
@@ -61,7 +56,7 @@ public class Infobook extends Activity{
                 startActivity(new Intent(getApplicationContext(), CharacterInfo.class));
                 break;
             case R.id.btn_collect:
-                startActivity(new Intent(getApplicationContext(), Collection.class));
+                startActivity(new Intent(getApplicationContext(), Collection1.class));
                 break;
             case R.id.btn_skill:
                 startActivity(new Intent(getApplicationContext(), SkillList.class));
