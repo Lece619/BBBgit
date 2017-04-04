@@ -14,6 +14,7 @@ import mj.bigbebig.R;
 
 public class SecondPlanet extends Activity {
 
+
 	private FrameLayout fl;
 	private SPsurface spsurface;
 	private SPinformation spinfo;
@@ -34,9 +35,33 @@ public class SecondPlanet extends Activity {
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		
-		super.onActivityResult(0, 0, getIntent());
-		Log.d("?????","???????????????????????????????????");
+		super.onActivityResult(requestCode, resultCode, data);
+
+		String str = data.getStringExtra("hello");
+		Log.d("fight","requestCode : " + requestCode);
+		Log.d("fight","requestCode : " + requestCode);
+		Log.d("fight","requestCode : " + requestCode);
+		Log.d("fight","resultCode : " + resultCode);
+		Log.d("fight","resultCode : " + resultCode);
+		Log.d("fight","resultCode : " + resultCode);
+
+
+
+		if(resultCode==RESULT_CANCELED){
+			Log.d("fight","Not Clear");
+			Log.d("fight","Not Clear");
+			Log.d("fight","Not Clear");
+			Log.d("fight","Not Clear");
+			Log.d("fight","Not Clear");
+		}
+		else if(resultCode==RESULT_OK){
+			Log.d("fight","Clear");
+			Log.d("fight","Clear");
+			Log.d("fight","Clear");
+			Log.d("fight","Clear");
+			Log.d("fight","Clear");
+			spinfo.setCatch_monster();
+		}
         spsurface = new SPsurface(this);
         spsurface.getactivity(this);
 		spsurface.getspinfo(spinfo);
@@ -55,7 +80,6 @@ public class SecondPlanet extends Activity {
 				finish();
 				break;
 			case R.id.btn_map:
-				//mapbtn.setVisibility(View.GONE);
 				spsurface.th_run = 2;
 				break;
 		}

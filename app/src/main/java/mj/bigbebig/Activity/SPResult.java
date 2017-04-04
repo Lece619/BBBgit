@@ -93,13 +93,14 @@ public class SPResult extends Activity {
                             pgb_expBar.setProgress(user_zero.getExp());
                             expNum.setText(user_zero.getExp() + " / " + user_zero.getExpmax());
                             tv_exp.setText((getElement[3] - i) + "exp");
-                            if(i==getElement[3]-1) end_run = true;
+
                         }
                     });
                 }
             }
         });
         thread.start();
+        end_run = true;
     }//터치 이벤트 함수
     public boolean onTouchEvent(MotionEvent event){
             if(event.getAction() == MotionEvent.ACTION_UP){

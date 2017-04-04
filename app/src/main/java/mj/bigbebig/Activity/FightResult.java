@@ -1,6 +1,7 @@
 package mj.bigbebig.Activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -33,12 +34,14 @@ public class FightResult extends Activity {
     boolean Vic_of_Def;
     int fightMonNum;
     Handler handler = new Handler();
+    Intent rtit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fight_result);
 
+        rtit = getIntent();
         fightMonNum = getIntent().getIntExtra("fightMonNum", 0);
         Vic_of_Def = getIntent().getBooleanExtra("VicOrDef", true);
 
@@ -126,8 +129,12 @@ public class FightResult extends Activity {
                 Toast.makeText(getApplicationContext(), source[num] + " 이(가) " + num2 + "개 나왔습니다.", Toast.LENGTH_SHORT).show();
                 bt_ok.setVisibility(View.VISIBLE);
                 user_zero.setElement(num, num2);
+                rtit.putExtra("source", num);
+                rtit.putExtra("source", num2);
                 break;
             case R.id.bnt_ok:
+                setResult(RESULT_OK, rtit);
+                onDestroy();
                 finish();
                 break;
         }

@@ -66,16 +66,12 @@ public class SPsurface extends SurfaceView implements SurfaceHolder.Callback, Ru
     public void getspinfo(SPinformation spinfo){
         this.spinfo = spinfo;
     }
-    public SPinformation setspinfo(){
-        return spinfo;
-    }
     public void getactivity(Activity act){
         this.SP_Act = act;
     }
 //-----------------------------------------------------------------------------------------------------------------------------------------------
     //surfaceView 관련 함수들
     public void surfaceCreated(SurfaceHolder holder){
-        //spinfo = new SPinformation();
         if(run) runrun.start();
     }
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) { }
@@ -89,22 +85,34 @@ public class SPsurface extends SurfaceView implements SurfaceHolder.Callback, Ru
                 retry = false;
             } catch(InterruptedException e){}
         }
-        Log.d("SurfaceView", "Destroyed Complete");
+        map = null;
+        map_character = null;
+        map_monster = null;
+        alchemist = null;
+        earth = null;
+        for(int i=0; i<5; i++)
+        {
+            for(int j=0; j<4; j++)
+                map_go[i][j] = null;
+        }
         runrun.interrupt();
+        Log.d("SurfaceView", "Destroyed Complete");
     }
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
     //Runnable 함수
     public void run(){
+
+
+        Paint axis = new Paint();
+        axis.setTextSize(80);
+        axis.setColor(Color.BLACK);
+
         //화면 표시에 필요한 그림과 텍스트들을 설정
         earth = BitmapFactory.decodeResource(getResources(), R.drawable.earth);
         alchemist = BitmapFactory.decodeResource(getResources(), R.drawable.alchemist3);
         map = BitmapFactory.decodeResource(getResources(), R.drawable.map_info);
         map_character = BitmapFactory.decodeResource(getResources(), R.drawable.map_alchemist);
-
-        Paint axis = new Paint();
-        axis.setTextSize(80);
-        axis.setColor(Color.BLACK);
 
         while(run){
             canvas = null;
@@ -279,7 +287,6 @@ public class SPsurface extends SurfaceView implements SurfaceHolder.Callback, Ru
         }
         else{
             Log.d("fight", "readytofight");
-
             if (aftx < ((canvas.getWidth() + map_monster.getWidth()) / 2.) && aftx > ((canvas.getWidth() - map_monster.getWidth()) / 2.)) {
                 if (afty < ((canvas.getHeight() + map_monster.getHeight()) / 2.) && afty > ((canvas.getHeight() - map_monster.getHeight()) / 2.)) {
                     if(spinfo.getMap_Info(3) == 1) {
@@ -287,8 +294,9 @@ public class SPsurface extends SurfaceView implements SurfaceHolder.Callback, Ru
                         Intent it = new Intent(SP_Act.getApplicationContext(), ReadyFight_two.class);
                         it.putExtra("mon_num",spinfo.getMap_Info(4));
                         it.putExtra("mon_size",spinfo.getMap_Info(5));
+
                         surfaceDestroyed(holder);
-                        SP_Act.startActivityForResult(it, 0);
+                        SP_Act.startActivityForResult(it, 1);
                     }
                     else if(spinfo.getMap_Info(3) == 2) {
                         showtext = 2;

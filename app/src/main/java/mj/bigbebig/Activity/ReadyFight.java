@@ -28,12 +28,15 @@ public class ReadyFight extends Activity{
     ImageView chooseSkillBtn[]=new ImageView[3];
     TextView chooseSkillInfo;
     LinearLayout chooseMonserLayout,chooseSkillLayout;
+    Intent getIt;
     int j,readyMonsterNum;                    //준비된 몬스터 넘버 -> intent 해줄번호 초기 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_readyfight);
+
+        getIt = getIntent();
 
         chooseMonsterBtn=(Button)findViewById(R.id.chooseMonster_Btn);
         chooseMonserLayout=(LinearLayout)findViewById(R.id.chooseMonster_layout);
@@ -104,7 +107,8 @@ public class ReadyFight extends Activity{
                 /*Intent intent = new Intent(getApplicationContext(),dummy_fight.class);*/
                 Intent intent = new Intent(getApplicationContext(),Fight_Act.class);
                 intent.putExtra("MonNum",readyMonsterNum);
-                startActivity(intent);
+                //intent.putExtra();
+                startActivityForResult(intent, 1);
                 finish();
                 break;
 

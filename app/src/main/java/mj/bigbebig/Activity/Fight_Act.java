@@ -297,9 +297,8 @@ public class Fight_Act extends Activity {
 
             //도망
             case R.id.btn_run:
-
                 Intent rtit = getIntent();
-                setResult(RESULT_OK, rtit);
+                setResult(RESULT_CANCELED, rtit);
                 onDestroy();
                 finish();
                 break;
@@ -343,6 +342,7 @@ public class Fight_Act extends Activity {
                         Intent intent=new Intent(getApplicationContext(),FightResult.class);
                         intent.putExtra("fightMonNum",mineMonNum);
                         intent.putExtra("VicOrDef",Vic_or_Def);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
                         startActivity(intent);
                         finish();
                 }
