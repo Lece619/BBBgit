@@ -39,34 +39,25 @@ public class SecondPlanet extends Activity {
 
 		String str = data.getStringExtra("hello");
 		Log.d("fight","requestCode : " + requestCode);
-		Log.d("fight","requestCode : " + requestCode);
-		Log.d("fight","requestCode : " + requestCode);
-		Log.d("fight","resultCode : " + resultCode);
-		Log.d("fight","resultCode : " + resultCode);
 		Log.d("fight","resultCode : " + resultCode);
 
-
-
-		if(resultCode==RESULT_CANCELED){
-			Log.d("fight","Not Clear");
-			Log.d("fight","Not Clear");
-			Log.d("fight","Not Clear");
-			Log.d("fight","Not Clear");
-			Log.d("fight","Not Clear");
+		if(requestCode == 1) {
+			if (resultCode == RESULT_CANCELED) {
+				Log.d("fight", "Not Clear");
+			} else if (resultCode == RESULT_OK) {
+				Log.d("fight", "Clear");
+				spinfo.setCatch_monster();
+			}
 		}
-		else if(resultCode==RESULT_OK){
-			Log.d("fight","Clear");
-			Log.d("fight","Clear");
-			Log.d("fight","Clear");
-			Log.d("fight","Clear");
-			Log.d("fight","Clear");
-			spinfo.setCatch_monster();
+		else{
+			Log.d("book or backpack", "Clear");
 		}
         spsurface = new SPsurface(this);
         spsurface.getactivity(this);
 		spsurface.getspinfo(spinfo);
 		fl.addView(spsurface);
 		spsurface.run = true;
+		Log.d("Reload", "Clear");
 	}
 
 	public void onClick(View v){
@@ -75,12 +66,25 @@ public class SecondPlanet extends Activity {
 				Intent it = new Intent(getApplicationContext(), SPResult.class);
 				it.putExtra("complete", spsurface.spinfo.complete());
 				spsurface.surfaceDestroyed(spsurface.getHolder());
-				onDestroy();
 				startActivity(it);
+				onDestroy();
 				finish();
 				break;
 			case R.id.btn_map:
 				spsurface.th_run = 2;
+				break;
+
+			//메뉴 페이지 이동
+			case R.id.btn_infobook:
+				Intent it2 = new Intent(getApplicationContext(), Infobook.class);
+				spsurface.surfaceDestroyed(spsurface.getHolder());
+				startActivityForResult(it2, 2);
+				break;
+			//배낭 페이지 이동
+			case R.id.btn_backpack:
+				Intent it3 = new Intent(getApplicationContext(), Backpack.class);
+				spsurface.surfaceDestroyed(spsurface.getHolder());
+				startActivityForResult(it3, 3);
 				break;
 		}
 	}

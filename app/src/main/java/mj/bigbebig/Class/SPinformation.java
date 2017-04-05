@@ -74,6 +74,7 @@ public class SPinformation {
                 char_location[1]--;
                 if(mapInfo[char_location[0]][char_location[1]][2] == 0) setPercent();
                 mapInfo[char_location[0]][char_location[1]][2] = 1;
+                Log.d("mon_num",getMap_Info(0) + " " + getMap_Info(1) + " " + getMap_Info(2) + " " + getMap_Info(3) + " " + getMap_Info(4) + " " + getMap_Info(5));
                 return true;
             }
             else{
@@ -86,6 +87,7 @@ public class SPinformation {
                 char_location[1]++;
                 if(mapInfo[char_location[0]][char_location[1]][2] == 0) setPercent();
                 mapInfo[char_location[0]][char_location[1]][2] = 1;
+                Log.d("mon_num",getMap_Info(0) + " " + getMap_Info(1) + " " + getMap_Info(2) + " " + getMap_Info(3) + " " + getMap_Info(4) + " " + getMap_Info(5));
                 return true;
             }
             else{
@@ -98,6 +100,7 @@ public class SPinformation {
                 char_location[0]++;
                 if(mapInfo[char_location[0]][char_location[1]][2] == 0) setPercent();
                 mapInfo[char_location[0]][char_location[1]][2] = 1;
+                Log.d("mon_num",getMap_Info(0) + " " + getMap_Info(1) + " " + getMap_Info(2) + " " + getMap_Info(3) + " " + getMap_Info(4) + " " + getMap_Info(5));
                 return true;
             }
             else{
@@ -110,6 +113,7 @@ public class SPinformation {
                 char_location[0]--;
                 if(mapInfo[char_location[0]][char_location[1]][2] == 0) setPercent();
                 mapInfo[char_location[0]][char_location[1]][2] = 1;
+                Log.d("mon_num",getMap_Info(0) + " " + getMap_Info(1) + " " + getMap_Info(2) + " " + getMap_Info(3) + " " + getMap_Info(4) + " " + getMap_Info(5));
                 return true;
             }
             else{

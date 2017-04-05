@@ -10,9 +10,6 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
-
 import mj.bigbebig.R;
 
 /**
@@ -58,6 +55,10 @@ public class Backpack extends Activity{
                 startActivity(new Intent(getApplicationContext(), ToolList.class));
                 break;
             case R.id.btn_back:
+                /*//행성에서 실행될 경우
+                Intent rtit = getIntent();
+                setResult(RESULT_OK, rtit);
+                onDestroy();*/
                 finish();
                 break;
         }

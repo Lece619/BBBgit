@@ -17,7 +17,6 @@ import mj.bigbebig.Class.SPinformation;
 import mj.bigbebig.R;
 
 import static java.lang.Thread.sleep;
-import static mj.bigbebig.Activity.MainActivity.user_zero;
 import static mj.bigbebig.Activity.MonsterLoad.monster;
 
 /**
@@ -131,7 +130,7 @@ public class SPsurface extends SurfaceView implements SurfaceHolder.Callback, Ru
                         if (spinfo.getMap_Info(3) == 0) {
 
                         } else if (spinfo.getMap_Info(3) == 1) {
-                            map_monster = BitmapFactory.decodeResource(getResources(), monster.getData(user_zero.getMon_name(spinfo.getMap_Info(4)), 13));
+                            map_monster = BitmapFactory.decodeResource(getResources(), monster.getData(spinfo.getMap_Info(4), 13));
                             map_monster = Bitmap.createScaledBitmap(map_monster, 600, 600, true);
                             canvas.drawBitmap(map_monster, (canvas.getWidth() - map_monster.getWidth()) / 2, (canvas.getHeight() - map_monster.getHeight()) / 2, null);
                         } else if (spinfo.getMap_Info(3) == 2) {
@@ -184,7 +183,7 @@ public class SPsurface extends SurfaceView implements SurfaceHolder.Callback, Ru
                                         canvas.drawBitmap(map_go[i][j], map.getWidth() / 5 * (i), (canvas.getHeight() - map.getHeight()) / 2 + map.getHeight() / 4 * (j), null);
                                     } else {
                                         if (spinfo.getMap_Info2(i, j, 3) == 1) {
-                                            map_go[i][j] = BitmapFactory.decodeResource(getResources(), monster.getData(user_zero.getMon_name(spinfo.getMap_Info2(i, j, 4)), 13));
+                                            map_go[i][j] = BitmapFactory.decodeResource(getResources(), monster.getData(spinfo.getMap_Info2(i, j, 4), 13));
                                             map_go[i][j] = Bitmap.createScaledBitmap(map_go[i][j], map.getWidth() / 12, map.getHeight() / 10, true);
                                             canvas.drawBitmap(map_go[i][j], map.getWidth() / 10 * (2 * i + 1) - map_go[i][j].getWidth() / 2, (canvas.getHeight() - map.getHeight()) / 2 + map.getHeight() / 8 * (2 * j), null);
                                         } else if (spinfo.getMap_Info2(i, j, 3) == 2) {
@@ -290,10 +289,10 @@ public class SPsurface extends SurfaceView implements SurfaceHolder.Callback, Ru
             if (aftx < ((canvas.getWidth() + map_monster.getWidth()) / 2.) && aftx > ((canvas.getWidth() - map_monster.getWidth()) / 2.)) {
                 if (afty < ((canvas.getHeight() + map_monster.getHeight()) / 2.) && afty > ((canvas.getHeight() - map_monster.getHeight()) / 2.)) {
                     if(spinfo.getMap_Info(3) == 1) {
-                        Log.d("monster", "monsterfight");
                         Intent it = new Intent(SP_Act.getApplicationContext(), ReadyFight_two.class);
                         it.putExtra("mon_num",spinfo.getMap_Info(4));
                         it.putExtra("mon_size",spinfo.getMap_Info(5));
+                        Log.d("monster", "monsterfight    " + spinfo.getMap_Info(4) + "          " + spinfo.getMap_Info(5));
 
                         surfaceDestroyed(holder);
                         SP_Act.startActivityForResult(it, 1);

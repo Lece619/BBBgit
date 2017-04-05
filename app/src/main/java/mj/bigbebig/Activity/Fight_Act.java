@@ -8,6 +8,7 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -39,6 +40,7 @@ import static mj.bigbebig.R.id.mine_HP;
  * Updated by Jino on 2017-02-28
  * Updated by Jino on 2017-03-01
  * Updated by Jino on 2017-03-03
+ * Updated by mk on 2017-04-05 - 지도에서 적 몬스터 정보를 받아와 등록하도록 변경
  */
 
 public class Fight_Act extends Activity {
@@ -48,7 +50,7 @@ public class Fight_Act extends Activity {
 
     Fight_Infomation fI;
     int mineMonNum,minesize;
-    int enemyMonNum,enemysize;
+    int enemyMonNum,enemysize, enemy_size;
 
     Handler handler=new Handler();
 
@@ -69,10 +71,18 @@ public class Fight_Act extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fight);
 
-        mineMonNum=getIntent().getIntExtra("MonNum",0);
-        enemyMonNum=0;
+        mineMonNum = getIntent().getIntExtra("MonNum", 0);
+        enemyMonNum = getIntent().getIntExtra("mon_num", 50000);
+        enemy_size = getIntent().getIntExtra("mon_size", 50000);
+        if(enemyMonNum == 50000){
+            Log.d("fight", "enemyMonNum is NULL");
+            Intent rtit = getIntent();
+            setResult(RESULT_CANCELED, rtit);
+            onDestroy();
+            finish();
+        }
 
-        fI=new Fight_Infomation(mineMonNum,enemyMonNum);
+        fI=new Fight_Infomation(mineMonNum, enemyMonNum, enemy_size);
         enemy=fI.enemy;
         mine =fI.mine;
         /*enemy=new Fighting_Monster(monster.fightMonster(3));

@@ -62,6 +62,10 @@ public class Infobook extends Activity{
                 startActivity(new Intent(getApplicationContext(), SkillList.class));
                 break;
             case R.id.btn_back:
+                /*//행성에서 실행될 경우
+                Intent rtit = getIntent();
+                setResult(RESULT_OK, rtit);
+                onDestroy();*/
                 finish();
                 break;
         }

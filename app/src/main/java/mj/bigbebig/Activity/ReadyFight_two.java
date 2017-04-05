@@ -3,6 +3,7 @@ package mj.bigbebig.Activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,12 +24,24 @@ public class ReadyFight_two extends Activity {
     ImageView chooseSkillBtn[]=new ImageView[3];
     TextView chooseSkillInfo;
     LinearLayout chooseMonserLayout,chooseSkillLayout;
+    int mon_num, mon_size;
     int j,readyMonsterNum;                    //준비된 몬스터 넘버 -> intent 해줄번호 초기 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_readyfight);
+
+        Intent it = getIntent();
+        mon_num = it.getIntExtra("mon_num", 50000);
+        mon_size = it.getIntExtra("mon_size", 50000);
+        if(mon_num == 50000){
+            Log.d("fight", "enemyMonNum is NULL");
+            Intent rtit = getIntent();
+            setResult(RESULT_CANCELED, rtit);
+            onDestroy();
+            finish();
+        }
 
         chooseMonsterBtn=(Button)findViewById(R.id.chooseMonster_Btn);
         chooseMonserLayout=(LinearLayout)findViewById(R.id.chooseMonster_layout);
@@ -99,6 +112,9 @@ public class ReadyFight_two extends Activity {
                 /*Intent intent = new Intent(getApplicationContext(),dummy_fight.class);*/
                 Intent intent = new Intent(getApplicationContext(),Fight_Act.class);
                 intent.putExtra("MonNum",readyMonsterNum);
+                intent.putExtra("mon_num", mon_num);
+                intent.putExtra("mon_size", mon_size);
+                Log.d("monster", "monsterfight    " + mon_num + "          " + mon_size);
                 intent.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
                 startActivity(intent);
                 finish();

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.Random;
 
@@ -85,6 +86,7 @@ public class MapDatabase extends SQLiteOpenHelper {
     public void getFirstplanet(int[][][] randomplanet){
         SQLiteDatabase db = getReadableDatabase();
         Cursor cs = db.rawQuery("SELECT * FROM FP", null);
+        Log.d("monster", "size : " + monster.size());
 
        while(cs.moveToNext()){
            randomplanet[cs.getInt(1)][cs.getInt(2)][0] = cs.getInt(3);//이동 가능 여부
@@ -100,10 +102,10 @@ public class MapDatabase extends SQLiteOpenHelper {
                randomplanet[cs.getInt(1)][cs.getInt(2)][5] = 0;
            }
            else if(num < 70){
-               num2 = random.nextInt(monster.size());
+               num2 = random.nextInt(monster.size()) + 1;
                randomplanet[cs.getInt(1)][cs.getInt(2)][3] = 1;
                randomplanet[cs.getInt(1)][cs.getInt(2)][4] = num2;
-               randomplanet[cs.getInt(1)][cs.getInt(2)][5] = 1;
+               randomplanet[cs.getInt(1)][cs.getInt(2)][5] = random.nextInt(10);
            }
            else {
                randomplanet[cs.getInt(1)][cs.getInt(2)][3] = 2;

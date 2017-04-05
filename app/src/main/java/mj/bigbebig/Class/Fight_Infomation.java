@@ -2,7 +2,6 @@ package mj.bigbebig.Class;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import static mj.bigbebig.Activity.MainActivity.user_zero;
 import static mj.bigbebig.Activity.MonsterLoad.monster;
@@ -10,6 +9,7 @@ import static mj.bigbebig.Activity.MonsterLoad.monster;
 /**
  * Created by mk on 2017-03-06 - 전투 정보를 나타낼 클래스 생성 ex)현재 어떤 스킬이 유효한지 현재 진행중인 스킬 목록 cur_skill을 만듦.
  * Updated by jk on 2017-03-06 - 유저 데이터 사용하기 위해 유저데이터 Public 부여
+ * Updated by mk on 2017-04-05 - 적 정보를 랜덤 대신 맵에서 받아온 정보로 대체함.
  */
 
 public class Fight_Infomation {
@@ -18,10 +18,10 @@ public class Fight_Infomation {
     public Fighting_Monster mine,enemy;
 
     //생성자
-    public Fight_Infomation(int mineMonNum,int enemyMonNum){
-        Random random=new Random();
-        enemyMonNum=random.nextInt(9)+1;
-        enemy=new Fighting_Monster(monster.fightMonster(enemyMonNum));
+    public Fight_Infomation(int mineMonNum,int enemyMonNum, int enemyMon_Size){
+        //Random random=new Random();
+        //enemyMonNum = random.nextInt(9)+1;
+        enemy=new Fighting_Monster(monster.fightMonster(enemyMonNum, enemyMon_Size));
         mine =new Fighting_Monster(user_zero.monList.get(mineMonNum).fightMonster());
     }
 

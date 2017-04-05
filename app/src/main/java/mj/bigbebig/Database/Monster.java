@@ -95,6 +95,19 @@ public class Monster extends SQLiteOpenHelper {
         return result;
     }
 
+    public int getData(int i, int j){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cs = db.rawQuery("SELECT * FROM " + DATABASE_NAME, null);
+        int result = 0;
+        while(cs.moveToNext()){
+            if(i == cs.getInt(0)){
+                result = cs.getInt(j);
+            }
+        }
+        db.close();
+        return result;
+    }
+
     //필요한 데이터 로드 -요소 검색
     public int getData(String name,String factor){
         SQLiteDatabase db = getReadableDatabase();
@@ -158,8 +171,8 @@ public class Monster extends SQLiteOpenHelper {
 
 
     //이름 사이즈 체력 공 방 나무 암석 금속 사이즈성장 hp성장 공격력성장 아머성장 이미지
-    // 1    2    3    4  5  6   7    8    9         10     11        12    13
-    public Object[] fightMonster(int monNum){
+    // 1    2      3   4  5   6    7    8       9        10      11         12      13
+    public Object[] fightMonster(int monNum, int mon_size){
         Object[] monster=new Object[9];
         SQLiteDatabase db = getReadableDatabase();
 
@@ -168,10 +181,10 @@ public class Monster extends SQLiteOpenHelper {
 
         if(cs.moveToFirst()){
             monster[0]=cs.getString(1);
-            monster[1]=cs.getInt(2);
-            monster[2]=cs.getInt(3);
-            monster[3]=cs.getInt(4);
-            monster[4]=cs.getInt(5);
+            monster[1]=cs.getInt(2) + cs.getInt(9)*mon_size;
+            monster[2]=cs.getInt(3) + cs.getInt(10)*mon_size;
+            monster[3]=cs.getInt(4) + cs.getInt(11)*mon_size;
+            monster[4]=cs.getInt(5) + cs.getInt(12)*mon_size;
             monster[5]=cs.getInt(6);
             monster[6]=cs.getInt(7);
             monster[7]=cs.getInt(8);
